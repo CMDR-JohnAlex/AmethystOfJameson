@@ -5,7 +5,6 @@ public class Game
 {
     public void Initialize()
     {
-        State.GameState = State.Game.Menu;
     }
 
     public void Shutdown()

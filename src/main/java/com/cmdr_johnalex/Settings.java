@@ -1,11 +1,16 @@
 package com.cmdr_johnalex;
 
 // Static Settings class.
-// This class is responsible for loading and saving settings, as well as providing access to settings.
+// This class is responsible for loading and saving settings, as well as providing read-only access to settings.
 // The class is static so that it can be accessed from anywhere in the program.
 public class Settings
 {
-    public static Boolean test = false;
+    private static Boolean test = false;
+
+    public static final Boolean GetTest()
+    {
+        return test;
+    }
 
     public static void Initialize()
     {
@@ -25,6 +30,6 @@ public class Settings
         System.out.println("Input a number to change a setting, or 0 to return to the main menu.");
         System.out.print("> ");
 
-        State.MenuState = State.Menu.MainMenu;
+        State.CurrentState = State.MainMenu;
     }
 }

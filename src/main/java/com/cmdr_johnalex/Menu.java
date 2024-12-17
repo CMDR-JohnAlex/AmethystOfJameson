@@ -1,39 +1,14 @@
 package com.cmdr_johnalex;
 
-// The Menu class is responsible for displaying the main menu, character creation, settings, and credits.
+// The Menu class is responsible for displaying the different menus.
 public class Menu
 {
     public void Initialize()
     {
-        State.MenuState = State.Menu.MainMenu;
     }
 
     public void Shutdown()
     {
-    }
-
-    public void Run()
-    {
-        switch (State.MenuState)
-        {
-        case MainMenu:
-            MainMenu();
-            break;
-        case CharacterCreation:
-            System.out.println("Character Creation is not implemented yet.");
-            State.MenuState = State.Menu.MainMenu;
-            State.GameState = State.Game.Playing;
-            break;
-        case Settings:
-            Settings.SettingsMenu();
-            break;
-        case Credits:
-            System.out.println("Credits is not implemented yet.");
-            break;
-        default:
-            System.out.println("We shouldn't be here.");
-            break;
-        }
     }
 
     public void MainMenu()
@@ -47,5 +22,22 @@ public class Menu
         System.out.println("4. Quit");
         System.out.println("===================");
         System.out.print("> ");
+    }
+
+    public void CharacterCreation()
+    {
+        System.out.println("Character Creation:");
+        System.out.println("Sorry, this is not yet implemented.");
+    }
+
+    public void Settings()
+    {
+        Settings.SettingsMenu();
+    }
+
+    public void Credits()
+    {
+        System.out.println("Credits:");
+        System.out.println("Sorry, this is not yet implemented.");
     }
 }

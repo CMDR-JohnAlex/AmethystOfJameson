@@ -12,6 +12,7 @@ public class Application
 
         menu = new Menu();
         game = new Game();
+        State.CurrentState = State.MainMenu;
 
         Settings.Initialize();
         menu.Initialize();
@@ -31,13 +32,22 @@ public class Application
     {
         while (isRunning)
         {
-            switch (State.GameState)
+            switch (State.CurrentState)
             {
-            case Menu:
-                menu.Run();
+            case MainMenu:
+                menu.MainMenu();
+                break;
+            case CharacterCreation:
+                menu.CharacterCreation();
                 break;
             case Playing:
                 game.Run();
+                break;
+            case Settings:
+                menu.Settings();
+                break;
+            case Credits:
+                menu.Credits();
                 break;
             default:
             System.out.println("We shouldn't be here.");
