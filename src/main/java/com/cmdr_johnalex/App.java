@@ -4,7 +4,7 @@ public final class App
 {
     public static void main(String[] args)
     {
-        Game game = new Game();
+        Application game = new Application();
         game.Initialize();
         game.Run();
         game.Shutdown();
