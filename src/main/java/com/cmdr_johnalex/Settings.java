@@ -28,8 +28,20 @@ public class Settings
         System.out.println("1. Test: " + test);
 
         System.out.println("Input a number to change a setting, or 0 to return to the main menu.");
-        System.out.print("> ");
+        int input = Input.GetInt();
 
-        State.CurrentState = State.MainMenu;
+        switch (input)
+        {
+            case 0:
+                State.CurrentState = State.MainMenu;
+                break;
+            case 1:
+                System.out.println("Please input a new value for Test (true/false):");
+                test = Input.GetBoolean();
+                break;
+            default:
+                System.out.println("Invalid input. Please try again.");
+                break;
+        }
     }
 }

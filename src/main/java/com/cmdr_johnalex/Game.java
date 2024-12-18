@@ -14,5 +14,8 @@ public class Game
     public void Run()
     {
         System.out.println("Game is running...");
+        System.out.println("Press enter to return to the main menu...");
+        Input.GetEnter();
+        State.CurrentState = State.MainMenu;
     }
 }

@@ -49,6 +49,9 @@ public class Application
             case Credits:
                 menu.Credits();
                 break;
+            case Quit:
+                isRunning = false;
+                break;
             default:
             System.out.println("We shouldn't be here.");
                 isRunning = false;

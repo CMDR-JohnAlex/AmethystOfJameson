@@ -6,7 +6,8 @@ public enum State
     CharacterCreation,
     Playing,
     Settings,
-    Credits;
+    Credits,
+    Quit;
 
     public static State CurrentState;
 }
