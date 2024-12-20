@@ -1,5 +1,7 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Utils.Input;
+
 // Static Settings class.
 // This class is responsible for loading and saving settings, as well as providing read-only access to settings.
 // The class is static so that it can be accessed from anywhere in the program.

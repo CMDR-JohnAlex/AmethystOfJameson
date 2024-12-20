@@ -1,5 +1,7 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Utils.Input;
+
 // The Menu class is responsible for displaying the different menus.
 public class Menu
 {

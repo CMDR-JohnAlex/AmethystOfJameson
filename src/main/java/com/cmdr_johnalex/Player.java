@@ -27,21 +27,21 @@ class PlayerData
 
 public class Player
 {
-    PlayerData data;
+    PlayerData Data;
 
     public void Initialize()
     {
-        data = new PlayerData();
-        data.Name = "John";
-        data.Age = 25;
-        data.Pronouns = new Pair<>("he", "him");
-        data.Health = data.MaxHealth;
+        Data = new PlayerData();
+        Data.Name = "John";
+        Data.Age = 25;
+        Data.Pronouns = new Pair<>("he", "him");
+        Data.Health = Data.MaxHealth;
 
-        data.Strength = 10;
-        data.Dexterity = 10;
-        data.Charisma = 10;
+        Data.Strength = 10;
+        Data.Dexterity = 10;
+        Data.Charisma = 10;
 
-        data.Inventory = new ArrayList<Item>();
+        Data.Inventory = new ArrayList<Item>();
     }
 
     public void Shutdown()

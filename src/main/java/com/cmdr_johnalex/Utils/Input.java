@@ -1,4 +1,4 @@
-package com.cmdr_johnalex;
+package com.cmdr_johnalex.Utils;
 
 import java.util.Scanner;
 

@@ -2,59 +2,59 @@ package com.cmdr_johnalex;
 
 public class Application
 {
-    Boolean isRunning;
-    Menu menu;
-    Game game;
+    Boolean IsRunning;
+    Menu Menu;
+    Game Game;
 
     public void Initialize()
     {
-        isRunning = true;
+        IsRunning = true;
 
-        menu = new Menu();
-        game = new Game();
+        Menu = new Menu();
+        Game = new Game();
         State.CurrentState = State.MainMenu;
 
         Settings.Initialize();
-        menu.Initialize();
-        game.Initialize();
+        Menu.Initialize();
+        Game.Initialize();
     }
 
     public void Shutdown()
     {
-        isRunning = false;
+        IsRunning = false;
 
-        menu.Shutdown();
-        game.Shutdown();
+        Menu.Shutdown();
+        Game.Shutdown();
         Settings.Shutdown();
     }
 
     public void Run()
     {
-        while (isRunning)
+        while (IsRunning)
         {
             switch (State.CurrentState)
             {
             case MainMenu:
-                menu.MainMenu();
+                Menu.MainMenu();
                 break;
             case CharacterCreation:
-                menu.CharacterCreation();
+                Menu.CharacterCreation();
                 break;
             case Playing:
-                game.Run();
+                Game.Run();
                 break;
             case Settings:
-                menu.Settings();
+                Menu.Settings();
                 break;
             case Credits:
-                menu.Credits();
+                Menu.Credits();
                 break;
             case Quit:
-                isRunning = false;
+                IsRunning = false;
                 break;
             default:
             System.out.println("We shouldn't be here.");
-                isRunning = false;
+                IsRunning = false;
                 break;
             }
         }
