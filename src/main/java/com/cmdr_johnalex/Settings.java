@@ -9,9 +9,23 @@ public class Settings
 {
     private static Boolean test = false;
 
+    // Map
+    private static int MapWidth = 7;
+    private static int MapHeight = 7;
+
     public static final Boolean GetTest()
     {
         return test;
+    }
+
+    public static final int GetMapWidth()
+    {
+        return MapWidth;
+    }
+
+    public static final int GetMapHeight()
+    {
+        return MapHeight;
     }
 
     public static void Initialize()
@@ -28,6 +42,8 @@ public class Settings
     {
         System.out.println("Settings:");
         System.out.println("1. Test: " + test);
+        System.out.println("2. Map Width: " + MapWidth);
+        System.out.println("3. Map Height: " + MapHeight);
 
         System.out.println("Input a number to change a setting, or 0 to return to the main menu.");
         int input = Input.GetInt();
@@ -40,6 +56,14 @@ public class Settings
             case 1:
                 System.out.println("Please input a new value for Test (true/false):");
                 test = Input.GetBoolean();
+                break;
+            case 2:
+                System.out.println("Please input a new value for Map Width (int):");
+                MapWidth = Input.GetInt();
+                break;
+            case 3:
+                System.out.println("Please input a new value for Map Height (int):");
+                MapHeight = Input.GetInt();
                 break;
             default:
                 System.out.println("Invalid input. Please try again.");

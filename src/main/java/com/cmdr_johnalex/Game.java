@@ -6,15 +6,19 @@ import com.cmdr_johnalex.Utils.Input;
 public class Game
 {
     private Player Player;
+    private Map Map;
 
     public void Initialize()
     {
         Player = new Player();
         Player.Initialize();
+        Map = new Map();
+        Map.Initialize();
     }
 
     public void Shutdown()
     {
+        Map.Shutdown();
         Player.Shutdown();
     }
 
