@@ -8,6 +8,7 @@ public class Game
 {
     private Player Player;
     private Map Map;
+    private Boolean FirstRun;
 
     public void Initialize()
     {
@@ -15,6 +16,7 @@ public class Game
         Player.Initialize();
         Map = new Map();
         Map.Initialize();
+        FirstRun = true;
     }
 
     public void Shutdown()
@@ -25,6 +27,12 @@ public class Game
 
     public void Run()
     {
+        if (FirstRun)
+        {
+            Map.GenerateMap();
+            FirstRun = false;
+        }
+
         Console.Clear();
         System.out.println("Game is running...");
         System.out.print("The player is: ");

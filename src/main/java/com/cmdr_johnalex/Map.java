@@ -6,7 +6,6 @@ public class Map
 
     public void Initialize()
     {
-        GenerateMap();
     }
 
     public void Shutdown()
