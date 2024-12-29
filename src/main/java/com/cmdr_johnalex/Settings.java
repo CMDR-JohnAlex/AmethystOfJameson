@@ -1,5 +1,6 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 
 // Static Settings class.
@@ -40,6 +41,7 @@ public class Settings
 
     public static void SettingsMenu()
     {
+        Console.Clear();
         System.out.println("Settings:");
         System.out.println("1. Test: " + test);
         System.out.println("2. Map Width: " + MapWidth);

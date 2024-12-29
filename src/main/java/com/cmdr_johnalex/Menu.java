@@ -1,5 +1,6 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 
 // The Menu class is responsible for displaying the different menus.
@@ -15,6 +16,7 @@ public class Menu
 
     public void MainMenu()
     {
+        Console.Clear();
         System.out.println("===================");
         System.out.println("Amethyst of Jameson");
         System.out.println("===================");
@@ -53,6 +55,7 @@ public class Menu
 
     public void CharacterCreation()
     {
+        Console.Clear();
         System.out.println("Character Creation:");
         System.out.println("Sorry, this is not yet implemented.");
         System.out.println("Press enter to continue...");
@@ -67,6 +70,7 @@ public class Menu
 
     public void Credits()
     {
+        Console.Clear();
         System.out.println("Credits:");
         System.out.println("Sorry, this is not yet implemented.");
         System.out.println("Press enter to continue...");
