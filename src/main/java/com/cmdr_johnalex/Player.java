@@ -21,6 +21,8 @@ class PlayerData
     int Dexterity; // DEX. Defense Chance
     int Charisma; // CHA. Persuasion/Retreat Chance
 
+    Pair<Integer, Integer> Location;
+
     // TODO: When getting stats, loop through all equipped items and add their bonus stats to the player's stats.
     ArrayList<Item> Inventory;
 }
@@ -40,6 +42,8 @@ public class Player
         Data.Strength = 10;
         Data.Dexterity = 10;
         Data.Charisma = 10;
+
+        Data.Location = new Pair<>(0, 0);
 
         Data.Inventory = new ArrayList<Item>();
     }

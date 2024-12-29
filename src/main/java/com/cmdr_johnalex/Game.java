@@ -34,11 +34,28 @@ public class Game
         }
 
         Console.Clear();
-        System.out.println("Game is running...");
-        System.out.print("The player is: ");
-        System.out.println(Player.Data.Name);
-        System.out.println("Press enter to return to the main menu...");
+
+        // Character stats/info.
+        System.out.println("Name: " + Player.Data.Name);
+
+        System.out.println("STR: " + Player.Data.Strength);
+        System.out.println("DEX: " + Player.Data.Dexterity);
+        System.out.println("CHA: " + Player.Data.Charisma);
+
+        System.out.println("HP: " + Player.Data.Health + "/" + Player.Data.MaxHealth);
+
+        // Display the room description.
+        System.out.println(Map.GetRoom(Player.Data.Location).RoomDescription);
+
+        // Display the room contents.
+        // ...
+
+        // Display the current location.
+        System.out.println("You are at: " + Player.Data.Location.ToString());
+
+        // Display input options.
+        System.out.println("Press enter to continue...");
         Input.GetEnter();
-        State.CurrentState = State.MainMenu;
+        //State.CurrentState = State.MainMenu;
     }
 }

@@ -1,5 +1,7 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Utils.Pair;
+
 public class Map
 {
     private Room[][] CurrentMap;
@@ -32,5 +34,15 @@ public class Map
     // TODO: Display map.
     public void DisplayMap()
     {
+    }
+
+    public Room GetRoom(int x, int y)
+    {
+        return CurrentMap[y][x];
+    }
+
+    public Room GetRoom(Pair<Integer, Integer> location)
+    {
+        return GetRoom(location.first, location.second);
     }
 }
