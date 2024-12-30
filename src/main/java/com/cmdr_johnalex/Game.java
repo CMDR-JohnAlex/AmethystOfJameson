@@ -58,7 +58,7 @@ public class Game
         // Temp.
         Player.Data.Gold += Map.GetRoom(Player.Data.Location).GoldAmount;
         System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).GoldAmount + " gold.");
-        Map.GetRoom(Player.Data.Location).GoldAmount = 0; // This is annoying. Why not run a room function to say "Hey, we did something now room is empty. Update."
+        Map.GetRoom(Player.Data.Location).Update();
 
         // Display input options.
         System.out.println("Press enter to continue...");

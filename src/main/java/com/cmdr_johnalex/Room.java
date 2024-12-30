@@ -23,6 +23,7 @@ enum RoomType
 public class Room
 {
     public RoomType Type;
+    // NOTE: Storing an entire string that is probably a duplicate for another room is a waste of memory. Now imagine if you had a million rooms...
     public String Description;
     public String ContentDescription;
 
@@ -56,6 +57,7 @@ public class Room
         }
     }
 
+    // Update the room since the player has interacted with it. Will clear out the room.
     public void Update()
     {
         switch (Type)
@@ -63,18 +65,16 @@ public class Room
         case Empty:
             break;
         case Gold:
-            if (GoldAmount == 0)
-            {
-                Type = RoomType.Empty;
-                ContentDescription = "There was once gold here.";
-            }
+            ContentDescription = "There was once gold here.";
             break;
         case Item:
-            // TODO: Check if item was picked up.
+        ContentDescription = "There was once an item here.";
             break;
         case Monster:
-            // TODO: Check if monster was defeated.
+        ContentDescription = "There was once a " + "*insert monster*" + " here.";
             break;
         }
+
+        Type = RoomType.Empty;
     }
 }
