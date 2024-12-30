@@ -123,4 +123,22 @@ public class Input
     {
         InputScanner.nextLine();
     }
+
+    // Compare, ignoring case. Returns true if equal, false otherwise.
+    public static Boolean Compare(String input, String compareTo)
+    {
+        return input.equalsIgnoreCase(compareTo);
+    }
+
+    // Compare an array of strings, ignoring case. Returns true if any string is equal, false otherwise.
+    public static Boolean Compare(String input, String[] compareTo)
+    {
+        for (String s : compareTo)
+        {
+            if (input.equalsIgnoreCase(s))
+                return true;
+        }
+
+        return false;
+    }
 }
