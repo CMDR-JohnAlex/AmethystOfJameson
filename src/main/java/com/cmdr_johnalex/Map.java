@@ -23,8 +23,8 @@ public class Map
             for (int j = 0; j < CurrentMap[i].length; j++)
             {
                 // TODO: Randomize room type + contents.
-                CurrentMap[i][j] = new Room(RoomType.Empty);
-                System.out.println("i: " + i + " j: " + j + " Type: " + CurrentMap[i][j].Type.toString() + " Description: " + CurrentMap[i][j].RoomDescription);
+                CurrentMap[i][j] = new Room(RoomType.Gold);
+                System.out.println("i: " + i + " j: " + j + " Type: " + CurrentMap[i][j].Type.toString() + " Description: " + CurrentMap[i][j].Description);
             }
         }
 

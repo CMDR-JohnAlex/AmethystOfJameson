@@ -23,6 +23,7 @@ class PlayerData
 
     Pair<Integer, Integer> Location;
 
+    int Gold;
     // TODO: When getting stats, loop through all equipped items and add their bonus stats to the player's stats.
     ArrayList<Item> Inventory;
 }
@@ -45,6 +46,7 @@ public class Player
 
         Data.Location = new Pair<>(0, 0);
 
+        Data.Gold = 0;
         Data.Inventory = new ArrayList<Item>();
     }
 

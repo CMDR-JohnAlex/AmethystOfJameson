@@ -44,14 +44,21 @@ public class Game
 
         System.out.println("HP: " + Player.Data.Health + "/" + Player.Data.MaxHealth);
 
+        System.out.println("Gold: " + Player.Data.Gold);
+
         // Display the room description.
-        System.out.println(Map.GetRoom(Player.Data.Location).RoomDescription);
+        System.out.println(Map.GetRoom(Player.Data.Location).Description);
 
         // Display the room contents.
-        // ...
+        System.out.println(Map.GetRoom(Player.Data.Location).ContentDescription);
 
         // Display the current location.
         System.out.println("You are at: " + Player.Data.Location.ToString());
+
+        // Temp.
+        Player.Data.Gold += Map.GetRoom(Player.Data.Location).GoldAmount;
+        System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).GoldAmount + " gold.");
+        Map.GetRoom(Player.Data.Location).GoldAmount = 0; // This is annoying. Why not run a room function to say "Hey, we did something now room is empty. Update."
 
         // Display input options.
         System.out.println("Press enter to continue...");

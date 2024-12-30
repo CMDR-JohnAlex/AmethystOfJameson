@@ -23,12 +23,58 @@ enum RoomType
 public class Room
 {
     public RoomType Type;
-    public String RoomDescription;
-    // TODO: Add more data about a room. Room contents.
+    public String Description;
+    public String ContentDescription;
+
+    public int GoldAmount;
+    public Item Item;
+    public String Monster; // TODO: Replace with Monster class.
 
     Room(RoomType type)
     {
         Type = type;
-        RoomDescription = "This is a room"; // TODO: Load randomly from a file.
+        Description = "This is a room"; // TODO: Load randomly from a file.
+
+        switch (Type)
+        {
+        case Empty:
+            ContentDescription = "There is nothing here.";
+            break;
+        case Gold:
+            ContentDescription = "There is some gold here.";
+            // TODO: Random gold amount.
+            GoldAmount = 7;
+            break;
+        case Item:
+            ContentDescription = "There is an item here.";
+            // TODO: Random item.
+            break;
+        case Monster:
+            ContentDescription = "There is a monster here.";
+            // TODO: Random monster.
+            break;
+        }
+    }
+
+    public void Update()
+    {
+        switch (Type)
+        {
+        case Empty:
+            break;
+        case Gold:
+            if (GoldAmount == 0)
+            {
+                Type = RoomType.Empty;
+                ContentDescription = "There was once gold here.";
+            }
+            break;
+        case Item:
+            // TODO: Check if item was picked up.
+            break;
+        case Monster:
+            // TODO: Check if monster was defeated.
+            break;
+        }
     }
 }
