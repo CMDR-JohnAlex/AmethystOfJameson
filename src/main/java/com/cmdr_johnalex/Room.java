@@ -65,6 +65,7 @@ public class Room
         case Empty:
             break;
         case Gold:
+            GoldAmount = 0;
             ContentDescription = "There was once gold here.";
             break;
         case Item:
