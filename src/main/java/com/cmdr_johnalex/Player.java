@@ -9,6 +9,14 @@ class Item
 {
 }
 
+enum Direction
+{
+    North,
+    East,
+    South,
+    West
+}
+
 class PlayerData
 {
     String Name;
@@ -52,5 +60,43 @@ public class Player
 
     public void Shutdown()
     {
+    }
+
+    // Moves the player in the given direction. Returns true if the player was able to move, false otherwise.
+    public Boolean Move(Direction direction)
+    {
+        switch (direction)
+        {
+        case North:
+            if (Data.Location.second > 0)
+            {
+                Data.Location.second--;
+                return true;
+            }
+            break;
+        case East:
+            if (Data.Location.first < Settings.GetMapWidth() - 1)
+            {
+                Data.Location.first++;
+                return true;
+            }
+            break;
+        case South:
+            if (Data.Location.second < Settings.GetMapHeight() - 1)
+            {
+                Data.Location.second++;
+                return true;
+            }
+            break;
+        case West:
+            if (Data.Location.first > 0)
+            {
+                Data.Location.first--;
+                return true;
+            }
+            break;
+        }
+
+        return false;
     }
 }

@@ -3,14 +3,6 @@ package com.cmdr_johnalex;
 import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 
-enum Direction
-{
-    North,
-    East,
-    South,
-    West
-}
-
 // The Game class is responsible for running the game. It will init the map class, display the user interface, allow the player to move, and handle combat.
 public class Game
 {
@@ -31,44 +23,6 @@ public class Game
     {
         Map.Shutdown();
         Player.Shutdown();
-    }
-
-    // Moves the player in the given direction. Returns true if the player was able to move, false otherwise.
-    public Boolean MovePlayer(Direction direction)
-    {
-        switch (direction)
-        {
-        case North:
-            if (Player.Data.Location.second > 0)
-            {
-                Player.Data.Location.second--;
-                return true;
-            }
-            break;
-        case East:
-            if (Player.Data.Location.first < Settings.GetMapWidth() - 1)
-            {
-                Player.Data.Location.first++;
-                return true;
-            }
-            break;
-        case South:
-            if (Player.Data.Location.second < Settings.GetMapHeight() - 1)
-            {
-                Player.Data.Location.second++;
-                return true;
-            }
-            break;
-        case West:
-            if (Player.Data.Location.first > 0)
-            {
-                Player.Data.Location.first--;
-                return true;
-            }
-            break;
-        }
-
-        return false;
     }
 
     public void Run()
@@ -101,11 +55,6 @@ public class Game
         // Display the current location.
         System.out.println("You are at: " + Player.Data.Location.ToString());
 
-        // Temp.
-        Player.Data.Gold += Map.GetRoom(Player.Data.Location).GoldAmount;
-        System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).GoldAmount + " gold.");
-        Map.GetRoom(Player.Data.Location).Update();
-
         // Player choice.
         System.out.println("So, what do you want to do?");
 
@@ -119,7 +68,7 @@ public class Game
         else if (Input.Compare(input, new String[]{"north", "n"}))
         {
             System.out.println("Trying to move north...");
-            if (!MovePlayer(Direction.North))
+            if (!Player.Move(Direction.North))
             {
                 System.out.println("You cannot move north. There is a wall.");
             }
@@ -127,7 +76,7 @@ public class Game
         else if (Input.Compare(input, new String[]{"east", "e"}))
         {
             System.out.println("Trying to move east...");
-            if (!MovePlayer(Direction.East))
+            if (!Player.Move(Direction.East))
             {
                 System.out.println("You cannot move east. There is a wall.");
             }
@@ -135,7 +84,7 @@ public class Game
         else if (Input.Compare(input, new String[]{"south", "s"}))
         {
             System.out.println("Trying to move south...");
-            if (!MovePlayer(Direction.South))
+            if (!Player.Move(Direction.South))
             {
                 System.out.println("You cannot move south. There is a wall.");
             }
@@ -143,32 +92,31 @@ public class Game
         else if (Input.Compare(input, new String[]{"west", "w"}))
         {
             System.out.println("Trying to move west...");
-            if (!MovePlayer(Direction.West))
+            if (!Player.Move(Direction.West))
             {
                 System.out.println("You cannot move west. There is a wall.");
             }
         }
         else if (Input.Compare(input, new String[]{"pickup", "pick up"}))
         {
-            if (Map.GetRoom(Player.Data.Location).Type == RoomType.Gold)
+            switch (Map.GetRoom(Player.Data.Location).Type)
             {
+            case Gold:
                 Player.Data.Gold += Map.GetRoom(Player.Data.Location).GoldAmount;
                 System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).GoldAmount + " gold.");
                 Map.GetRoom(Player.Data.Location).Update();
-            }
-            else if (Map.GetRoom(Player.Data.Location).Type == RoomType.Item)
-            {
+                break;
+            case Item:
                 // TODO: Implement item pickup.
                 System.out.println("Sorry, this has not been implemented yet.");
-            }
-            else if (Map.GetRoom(Player.Data.Location).Type == RoomType.Monster)
-            {
+                break;
+            case Monster:
                 // TODO: Implement combat.
                 System.out.println("Sorry, this has not been implemented yet.");
-            }
-            else
-            {
+                break;
+            default:
                 System.out.println("There is nothing to pick up here.");
+                break;
             }
         }
         else if (Input.Compare(input, new String[]{"map" , "m"}))
