@@ -18,6 +18,12 @@ public class Menu
     {
         Console.Clear();
         System.out.println("===================");
+        System.out.println("       ____");
+        System.out.println("      /\\__/\\");
+        System.out.println("     /_/  \\_\\");
+        System.out.println("     \\ \\__/ /");
+        System.out.println("      \\/__\\/");
+        System.out.println();
         System.out.println("Amethyst of Jameson");
         System.out.println("===================");
         System.out.println("1. New Game");

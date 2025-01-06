@@ -2,12 +2,8 @@ package com.cmdr_johnalex;
 
 import java.util.ArrayList;
 
+import com.cmdr_johnalex.Items.Item;
 import com.cmdr_johnalex.Utils.Pair;
-
-// TODO: Implement Item class. Do it somewhere else.
-class Item
-{
-}
 
 enum Direction
 {

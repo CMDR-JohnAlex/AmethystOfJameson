@@ -1,5 +1,7 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Items.Item;
+
 // Rooms have only four possibilities.
 enum RoomType
 {
