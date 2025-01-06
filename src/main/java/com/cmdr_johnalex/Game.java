@@ -56,6 +56,7 @@ public class Game
         // Display the current location.
         //System.out.println("\nYou are at: " + Player.Data.Location.ToString());
         System.out.println("\nYou are at: (" + Player.Data.Location.first + ", " + (char)(65 + Player.Data.Location.second) + ')');
+        Map.GetRoom(Player.Data.Location).Visited = true;
 
         // Player choice.
         System.out.println("\nSo, what do you want to do? (Type 'help' for a list of commands.)");

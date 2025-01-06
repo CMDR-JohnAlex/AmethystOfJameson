@@ -78,9 +78,10 @@ public class Map
             System.out.print(i + " | ");
             for (int j = 0; j < CurrentMap[i].length; j++)
             {
-                // TODO: Hidden rooms.
                 if (playerLocation.first == j && playerLocation.second == i)
-                    System.out.print("* YOU * | ");
+                    System.out.print("* YOU *" + " | ");
+                else if (!CurrentMap[i][j].Visited && Settings.GetHideUnvisitedRooms())
+                    System.out.print("UNKNOWN" + " | ");
                 else
                     System.out.print(CurrentMap[i][j].Type.ToMapString() + " | ");
             }

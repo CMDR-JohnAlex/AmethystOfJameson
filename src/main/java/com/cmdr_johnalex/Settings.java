@@ -15,6 +15,7 @@ public class Settings
     // Map
     private static int MapWidth = 7;
     private static int MapHeight = 7;
+    private static Boolean HideUnvisitedRooms = true;
 
     // Random
     private static long Seed = 3307;
@@ -39,6 +40,11 @@ public class Settings
         return Seed;
     }
 
+    public static final Boolean GetHideUnvisitedRooms()
+    {
+        return HideUnvisitedRooms;
+    }
+
     public static void Initialize()
     {
         // TODO: Load settings from file.
@@ -59,7 +65,8 @@ public class Settings
         System.out.println("1. Test: " + test);
         System.out.println("2. Map Width: " + MapWidth);
         System.out.println("3. Map Height: " + MapHeight);
-        System.out.println("4. Seed: " + Seed);
+        System.out.println("4. Hide Unvisited Rooms: " + HideUnvisitedRooms);
+        System.out.println("5. Seed: " + Seed);
 
         System.out.println("Input a number to change a setting, or 0 to return to the main menu.");
         int input = Input.GetInt();
@@ -82,6 +89,10 @@ public class Settings
                 MapHeight = Input.GetInt();
                 break;
             case 4:
+                System.out.println("Please input a new value for Hide Unvisited Rooms (true/false):");
+                HideUnvisitedRooms = Input.GetBoolean();
+                break;
+            case 5:
                 System.out.println("Please input a new value for Seed (long):");
                 Seed = Input.GetInt();
                 break;

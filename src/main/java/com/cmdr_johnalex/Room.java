@@ -37,6 +37,7 @@ public class Room
     // NOTE: Storing an entire string that is probably a duplicate for another room is a waste of memory. Now imagine if you had a million rooms...
     public String Description;
     public String ContentDescription;
+    public Boolean Visited;
 
     public int GoldAmount;
     public Item Item;
@@ -46,6 +47,7 @@ public class Room
     {
         Type = type;
         Description = "This is a room"; // TODO: Load randomly from a file.
+        Visited = false;
 
         switch (Type)
         {
