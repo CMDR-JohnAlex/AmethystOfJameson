@@ -125,7 +125,7 @@ public class Game
         }
         else if (Input.Compare(input, new String[]{"map" , "m"}))
         {
-            Map.DisplayMap();
+            Map.DisplayMap(Player.Data.Location);
         }
         else if (Input.Compare(input, new String[]{"help" , "h"}))
         {

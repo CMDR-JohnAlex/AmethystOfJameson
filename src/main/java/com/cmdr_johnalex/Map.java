@@ -57,7 +57,7 @@ public class Map
     }
 
     // TODO: Display map.
-    public void DisplayMap()
+    public void DisplayMap(Pair<Integer, Integer> playerLocation)
     {
         System.out.print("X |");
         for (int x = 0; x < Settings.GetMapWidth(); x++)
@@ -79,7 +79,10 @@ public class Map
             for (int j = 0; j < CurrentMap[i].length; j++)
             {
                 // TODO: Hidden rooms.
-                System.out.print(CurrentMap[i][j].Type.ToMapString() + " | ");
+                if (playerLocation.first == j && playerLocation.second == i)
+                    System.out.print("* YOU * | ");
+                else
+                    System.out.print(CurrentMap[i][j].Type.ToMapString() + " | ");
             }
             System.out.println();
         }
