@@ -36,15 +36,16 @@ public class Game
         Console.Clear();
 
         // Character stats/info.
-        System.out.println("Name: " + Player.Data.Name);
+        System.out.print("Name: " + Player.Data.Name);
 
-        System.out.println("STR: " + Player.Data.Strength);
-        System.out.println("DEX: " + Player.Data.Dexterity);
-        System.out.println("CHA: " + Player.Data.Charisma);
+        System.out.print("  STR: " + Player.Data.Strength);
+        System.out.print("  DEX: " + Player.Data.Dexterity);
+        System.out.print("  CHA: " + Player.Data.Charisma);
 
-        System.out.println("HP: " + Player.Data.Health + "/" + Player.Data.MaxHealth);
+        System.out.print("  HP: " + Player.Data.Health + "/" + Player.Data.MaxHealth);
 
-        System.out.println("Gold: " + Player.Data.Gold);
+        System.out.println("  Gold: " + Player.Data.Gold);
+        System.out.println();
 
         // Display the room description.
         System.out.println(Map.GetRoom(Player.Data.Location).Description);
@@ -53,12 +54,13 @@ public class Game
         System.out.println(Map.GetRoom(Player.Data.Location).ContentDescription);
 
         // Display the current location.
-        System.out.println("You are at: " + Player.Data.Location.ToString());
+        System.out.println("\nYou are at: " + Player.Data.Location.ToString());
 
         // Player choice.
-        System.out.println("So, what do you want to do?");
+        System.out.println("\nSo, what do you want to do? (Type 'help' for a list of commands.)");
 
         String input = Input.GetString();
+        System.out.println();
 
         if (Input.Compare(input, "quit"))
         {
@@ -140,7 +142,7 @@ public class Game
             System.out.println("Invalid input. Please try again.");
         }
 
-        System.out.println("Press enter to continue...");
+        System.out.println("\nPress enter to continue...");
         Input.GetEnter();
     }
 }
