@@ -1,6 +1,7 @@
 package com.cmdr_johnalex;
 
 import com.cmdr_johnalex.Items.Item;
+import com.cmdr_johnalex.Items.Amethyst;
 
 // Rooms have only four possibilities.
 enum RoomType
@@ -51,6 +52,7 @@ public class Room
         case Item:
             ContentDescription = "There is an item here.";
             // TODO: Random item.
+            Item = new Amethyst();
             break;
         case Monster:
             ContentDescription = "There is a monster here.";

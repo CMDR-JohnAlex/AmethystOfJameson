@@ -109,8 +109,9 @@ public class Game
                 Map.GetRoom(Player.Data.Location).Update();
                 break;
             case Item:
-                // TODO: Implement item pickup.
-                System.out.println("Sorry, this has not been implemented yet.");
+                Player.Data.Inventory.add(Map.GetRoom(Player.Data.Location).Item);
+                System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).Item.Article + ' ' + Map.GetRoom(Player.Data.Location).Item.Name + ".");
+                Map.GetRoom(Player.Data.Location).Update();
                 break;
             case Monster:
                 // TODO: Implement combat.
