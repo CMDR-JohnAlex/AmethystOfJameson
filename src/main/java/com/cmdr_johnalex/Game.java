@@ -54,7 +54,8 @@ public class Game
         System.out.println(Map.GetRoom(Player.Data.Location).ContentDescription);
 
         // Display the current location.
-        System.out.println("\nYou are at: " + Player.Data.Location.ToString());
+        //System.out.println("\nYou are at: " + Player.Data.Location.ToString());
+        System.out.println("\nYou are at: (" + Player.Data.Location.first + ", " + (char)(65 + Player.Data.Location.second) + ')');
 
         // Player choice.
         System.out.println("\nSo, what do you want to do? (Type 'help' for a list of commands.)");
@@ -124,7 +125,7 @@ public class Game
         }
         else if (Input.Compare(input, new String[]{"map" , "m"}))
         {
-            // TODO: Display map.
+            Map.DisplayMap();
         }
         else if (Input.Compare(input, new String[]{"help" , "h"}))
         {

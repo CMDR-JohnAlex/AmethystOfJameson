@@ -59,6 +59,62 @@ public class Map
     // TODO: Display map.
     public void DisplayMap()
     {
+        System.out.print("X |");
+        for (int x = 0; x < Settings.GetMapWidth(); x++)
+        {
+            System.out.print("    " + (char)(65 + x) + "    |");
+        }
+        System.out.println();
+
+        System.out.print("- |");
+        for (int x = 0; x < Settings.GetMapWidth(); x++)
+        {
+            System.out.print(" ------- |");
+        }
+        System.out.println();
+
+        for (int i = 0; i < CurrentMap.length; i++)
+        {
+            System.out.print(i + " | ");
+            for (int j = 0; j < CurrentMap[i].length; j++)
+            {
+                // TODO: Hidden rooms.
+                System.out.print(CurrentMap[i][j].Type.ToMapString() + " | ");
+            }
+            System.out.println();
+        }
+
+        System.out.print("---");
+        for (int x = 0; x < Settings.GetMapWidth(); x++)
+        {
+            System.out.print("----------");
+        }
+        System.out.println();
+
+
+
+        /*
+        print("X |", end="")
+        for x in range(self.row):
+            print("    " + chr(65+x) + "    |", end="")
+        print()
+
+        print("- |", end="")
+        for x in range(self.row):
+            print(" ------- |", end="")
+        print()
+
+        for i in range(len(self.map)):
+            print(i, end=" | ")
+            for j in range(len(self.map[i])):
+                print(self.map[i][j][floor].to_map_string(override_hidden), end=" | ")
+            print()
+
+        print("---", end="")
+        for x in range(self.row):
+            print("----------", end="")
+        print()
+        */
     }
 
     public Room GetRoom(int x, int y)

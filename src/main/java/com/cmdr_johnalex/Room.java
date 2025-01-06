@@ -16,8 +16,16 @@ enum RoomType
     {
         switch (this)
         {
+        case Empty:
+            return " EMPTY ";
+        case Gold:
+            return " GOLD  ";
+        case Item:
+            return " ITEM  ";
+        case Monster:
+            return "MONSTER";
         default:
-            return "";
+            return "       ";
         }
     }
 }
@@ -73,10 +81,10 @@ public class Room
             ContentDescription = "There was once gold here.";
             break;
         case Item:
-        ContentDescription = "There was once an item here.";
+            ContentDescription = "There was once an item here.";
             break;
         case Monster:
-        ContentDescription = "There was once a " + "*insert monster*" + " here.";
+            ContentDescription = "There was once a " + "*insert monster*" + " here.";
             break;
         }
 
