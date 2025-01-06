@@ -125,7 +125,15 @@ public class Game
         }
         else if (Input.Compare(input, new String[]{"help" , "h"}))
         {
-            // TODO: Display help.
+            System.out.println("Commands:");
+            System.out.println("North (n) - Move north.");
+            System.out.println("East (e) - Move east.");
+            System.out.println("South (s) - Move south.");
+            System.out.println("West (w) - Move west.");
+            System.out.println("Pickup - Pick up an item or gold.");
+            System.out.println("Map (m) - Display the map.");
+            System.out.println("Help (h) - Display this help message.");
+            System.out.println("Quit - Quit the game.");
         }
         else
         {
