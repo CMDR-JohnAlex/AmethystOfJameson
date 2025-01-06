@@ -22,7 +22,7 @@ class PlayerData
     String Name;
     int Age;
     Pair<String, String> Pronouns;
-    int MaxHealth;
+    final int MaxHealth = 100;
     int Health;
 
     int Strength; // STR. Attack Damage/Chance
@@ -43,9 +43,9 @@ public class Player
     public void Initialize()
     {
         Data = new PlayerData();
-        Data.Name = "John";
+        Data.Name = "Erin";
         Data.Age = 25;
-        Data.Pronouns = new Pair<>("he", "him");
+        Data.Pronouns = new Pair<>("they", "them");
         Data.Health = Data.MaxHealth;
 
         Data.Strength = 10;
