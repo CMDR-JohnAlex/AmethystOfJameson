@@ -1,5 +1,7 @@
 package com.cmdr_johnalex;
 
+import java.util.Random;
+
 import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 
@@ -13,6 +15,9 @@ public class Settings
     // Map
     private static int MapWidth = 7;
     private static int MapHeight = 7;
+
+    // Random
+    private static long Seed = 3307;
 
     public static final Boolean GetTest()
     {
@@ -29,9 +34,17 @@ public class Settings
         return MapHeight;
     }
 
+    public static final long GetSeed()
+    {
+        return Seed;
+    }
+
     public static void Initialize()
     {
         // TODO: Load settings from file.
+
+        // Let's start by making the seed random, and the user can change it in the settings menu.
+        Seed = new Random().nextLong();
     }
 
     public static void Shutdown()
@@ -46,6 +59,7 @@ public class Settings
         System.out.println("1. Test: " + test);
         System.out.println("2. Map Width: " + MapWidth);
         System.out.println("3. Map Height: " + MapHeight);
+        System.out.println("4. Seed: " + Seed);
 
         System.out.println("Input a number to change a setting, or 0 to return to the main menu.");
         int input = Input.GetInt();
@@ -66,6 +80,10 @@ public class Settings
             case 3:
                 System.out.println("Please input a new value for Map Height (int):");
                 MapHeight = Input.GetInt();
+                break;
+            case 4:
+                System.out.println("Please input a new value for Seed (long):");
+                Seed = Input.GetInt();
                 break;
             default:
                 System.out.println("Invalid input. Please try again.");
