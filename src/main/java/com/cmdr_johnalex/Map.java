@@ -79,7 +79,7 @@ public class Map
             for (int j = 0; j < CurrentMap[i].length; j++)
             {
                 if (playerLocation.first == j && playerLocation.second == i)
-                    System.out.print("* YOU *" + " | ");
+                    System.out.print("\033[0;1m\033[0;4m* YOU *\033[0;0m" + " | ");
                 else if (!CurrentMap[i][j].Visited && Settings.GetHideUnvisitedRooms())
                     System.out.print("UNKNOWN" + " | ");
                 else
