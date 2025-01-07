@@ -59,13 +59,14 @@ public class Menu
         }
     }
 
-    public void CharacterCreation()
+    public void CharacterCreation(Player player)
     {
         Console.Clear();
         System.out.println("Character Creation:");
-        System.out.println("Sorry, this is not yet implemented.");
-        System.out.println("Press enter to continue...");
-        Input.GetEnter();
+
+
+        System.out.println("So, what is the name of this worthy adventurer?");
+        player.Data.Name = Input.GetString();
         State.CurrentState = State.Playing;
     }
 

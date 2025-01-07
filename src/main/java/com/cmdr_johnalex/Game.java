@@ -25,6 +25,11 @@ public class Game
         Player.Shutdown();
     }
 
+    public Player GetPlayer()
+    {
+        return Player;
+    }
+
     public void Run()
     {
         if (FirstRun)

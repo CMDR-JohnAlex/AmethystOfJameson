@@ -38,7 +38,7 @@ public class Application
                 Menu.MainMenu();
                 break;
             case CharacterCreation:
-                Menu.CharacterCreation();
+                Menu.CharacterCreation(Game.GetPlayer());
                 break;
             case Playing:
                 Game.Run();
