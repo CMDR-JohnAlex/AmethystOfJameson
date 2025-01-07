@@ -19,6 +19,8 @@ public class Input
 
             if (input.length() > 0)
                 isValidInput = true;
+            else
+                System.out.println(incorrectMessage);
         }
 
         return input;
@@ -47,9 +49,9 @@ public class Input
             {
                 System.out.println(incorrectMessage);
             }
+            // Clear the buffer. When using nextInt, any other input including a newline character '\n' will be left in the buffer.
+            InputScanner.nextLine();
         }
-        // Clear the buffer. When using nextInt, any other input including a newline character '\n' will be left in the buffer.
-        InputScanner.nextLine();
 
         return input;
     }
