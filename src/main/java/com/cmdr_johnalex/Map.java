@@ -48,15 +48,17 @@ public class Map
                 else
                     randomType = RoomType.Empty;
 
-                CurrentMap[i][j] = new Room(randomType);
+                CurrentMap[i][j] = new Room(randomType, false);
                 System.out.println("i: " + i + " j: " + j + " Type: " + CurrentMap[i][j].Type.toString() + " Description: " + CurrentMap[i][j].Description);
             }
         }
 
-        // TODO: Randomly overwrite one room to have the Amethyst.
+        // Randomly overwrite one room to have the Amethyst.
+        int amethystX = Rand.Range(0, CurrentMap.length - 1);
+        int amethystY = Rand.Range(0, CurrentMap[amethystX].length - 1);
+        CurrentMap[amethystX][amethystY] = new Room(RoomType.Item, true);
     }
 
-    // TODO: Display map.
     public void DisplayMap(Pair<Integer, Integer> playerLocation)
     {
         System.out.print("X |");
@@ -94,31 +96,6 @@ public class Map
             System.out.print("----------");
         }
         System.out.println();
-
-
-
-        /*
-        print("X |", end="")
-        for x in range(self.row):
-            print("    " + chr(65+x) + "    |", end="")
-        print()
-
-        print("- |", end="")
-        for x in range(self.row):
-            print(" ------- |", end="")
-        print()
-
-        for i in range(len(self.map)):
-            print(i, end=" | ")
-            for j in range(len(self.map[i])):
-                print(self.map[i][j][floor].to_map_string(override_hidden), end=" | ")
-            print()
-
-        print("---", end="")
-        for x in range(self.row):
-            print("----------", end="")
-        print()
-        */
     }
 
     public Room GetRoom(int x, int y)

@@ -1,7 +1,9 @@
 package com.cmdr_johnalex;
 
-import com.cmdr_johnalex.Items.Item;
 import com.cmdr_johnalex.Items.Amethyst;
+import com.cmdr_johnalex.Items.Item;
+import com.cmdr_johnalex.Items.TestItem;
+import com.cmdr_johnalex.Utils.Rand;
 
 // Rooms have only four possibilities.
 enum RoomType
@@ -11,7 +13,6 @@ enum RoomType
     Item,
     Monster;
 
-    // TODO: Map display.
     public String ToMapString()
     {
         switch (this)
@@ -43,7 +44,7 @@ public class Room
     public Item Item;
     public String Monster; // TODO: Replace with Monster class.
 
-    Room(RoomType type)
+    Room(RoomType type, Boolean isAmethyst)
     {
         Type = type;
         Description = "This is a room"; // TODO: Load randomly from a file.
@@ -56,13 +57,14 @@ public class Room
             break;
         case Gold:
             ContentDescription = "There is some gold here.";
-            // TODO: Random gold amount.
-            GoldAmount = 7;
+            GoldAmount = Rand.Range(1, 32);
             break;
         case Item:
             ContentDescription = "There is an item here.";
-            // TODO: Random item.
-            Item = new Amethyst();
+            if (isAmethyst)
+                Item = new Amethyst();
+            else
+                Item = new TestItem(); // TODO: Random item.
             break;
         case Monster:
             ContentDescription = "There is a monster here.";
