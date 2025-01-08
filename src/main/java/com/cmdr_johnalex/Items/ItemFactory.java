@@ -1,13 +1,15 @@
 package com.cmdr_johnalex.Items;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.cmdr_johnalex.Utils.Rand;
 
 public class ItemFactory
 {
     // NOTE: This needs to be updated every time a new item is added.
     // TODO: Implement a way to automatically add new items.
-    private static final Class<? extends Item>[] ItemClasses = new Class[]
-    {
+    private static final List<Class<? extends Item>> ItemClasses = Arrays.asList(
         //TestItem.class,
         GlovesOfCombat.class,
         GoldenRing.class,
@@ -17,14 +19,14 @@ public class ItemFactory
         TopazOfTyler.class,
         TressymFeather.class,
         UsedFlare.class
-    };
+    );
 
     public static Item CreateRandomItem()
     {
-        int index = Rand.Range(0, ItemClasses.length - 1);
+        int index = Rand.Range(0, ItemClasses.size() - 1);
         try
         {
-            return ItemClasses[index].getDeclaredConstructor().newInstance();
+            return ItemClasses.get(index).getDeclaredConstructor().newInstance();
         }
         catch (Exception e)
         {
