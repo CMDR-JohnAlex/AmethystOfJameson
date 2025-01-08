@@ -2,7 +2,7 @@ package com.cmdr_johnalex;
 
 import com.cmdr_johnalex.Items.Amethyst;
 import com.cmdr_johnalex.Items.Item;
-import com.cmdr_johnalex.Items.TestItem;
+import com.cmdr_johnalex.Items.ItemFactory;
 import com.cmdr_johnalex.Utils.Rand;
 
 // Rooms have only four possibilities.
@@ -64,7 +64,7 @@ public class Room
             if (isAmethyst)
                 Item = new Amethyst();
             else
-                Item = new TestItem(); // TODO: Random item.
+                Item = ItemFactory.CreateRandomItem();
             break;
         case Monster:
             ContentDescription = "There is a monster here.";
