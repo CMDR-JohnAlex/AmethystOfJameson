@@ -1,5 +1,6 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Items.Item;
 import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 
@@ -43,9 +44,9 @@ public class Game
         // Character stats/info.
         System.out.print("Name: " + Player.Data.Name);
 
-        System.out.print("  STR: " + Player.Data.Strength);
-        System.out.print("  DEX: " + Player.Data.Dexterity);
-        System.out.print("  CHA: " + Player.Data.Charisma);
+        System.out.print("  STR: " + Player.GetStrength());
+        System.out.print("  DEX: " + Player.GetDexterity());
+        System.out.print("  CHA: " + Player.GetCharisma());
 
         System.out.print("  HP: " + Player.Data.Health + "/" + Player.Data.MaxHealth);
 
@@ -106,17 +107,17 @@ public class Game
                 System.out.println("You cannot move west. There is a wall.");
             }
         }
-        else if (Input.Compare(input, new String[]{"pickup", "pick up"}))
+        else if (Input.Compare(input, new String[]{"pickup", "pick up", "p"}))
         {
             switch (Map.GetRoom(Player.Data.Location).Type)
             {
             case Gold:
-                Player.Data.Gold += Map.GetRoom(Player.Data.Location).GoldAmount;
+                Player.AddGold(Map.GetRoom(Player.Data.Location).GoldAmount);
                 System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).GoldAmount + " gold.");
                 Map.GetRoom(Player.Data.Location).Update();
                 break;
             case Item:
-                Player.Data.Inventory.add(Map.GetRoom(Player.Data.Location).Item);
+                Player.AddItem(Map.GetRoom(Player.Data.Location).Item);
                 System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).Item.Article + ' ' + Map.GetRoom(Player.Data.Location).Item.Name + ".");
                 Map.GetRoom(Player.Data.Location).Update();
                 break;
@@ -133,6 +134,14 @@ public class Game
         {
             Map.DisplayMap(Player.Data.Location);
         }
+        else if (Input.Compare(input, new String[]{"inventory" , "i"}))
+        {
+            System.out.println("Player inventory: ");
+            for (Item item : Player.Data.Inventory)
+            {
+                System.out.println("  - " + item.Article + ' ' + item.Name + " (Worth " + item.Value + " gold)");
+            }
+        }
         else if (Input.Compare(input, new String[]{"help" , "h"}))
         {
             System.out.println("Commands:");
@@ -140,8 +149,9 @@ public class Game
             System.out.println("East (e) - Move east.");
             System.out.println("South (s) - Move south.");
             System.out.println("West (w) - Move west.");
-            System.out.println("Pickup - Pick up an item or gold.");
+            System.out.println("Pickup (p) - Pick up an item or gold.");
             System.out.println("Map (m) - Display the map.");
+            System.out.println("Inventory (i) - Display the player's inventory.");
             System.out.println("Help (h) - Display this help message.");
             System.out.println("Quit - Quit the game.");
         }

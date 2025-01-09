@@ -28,12 +28,13 @@ class PlayerData
     Pair<Integer, Integer> Location;
 
     int Gold;
-    // TODO: When getting stats, loop through all equipped items and add their bonus stats to the player's stats.
+
     ArrayList<Item> Inventory;
 }
 
 public class Player
 {
+    // TODO: Make this private and use getters/setters.
     PlayerData Data;
 
     public void Initialize()
@@ -94,5 +95,58 @@ public class Player
         }
 
         return false;
+    }
+
+    public void AddItem(Item item)
+    {
+        Data.Inventory.add(item);
+    }
+
+    public void RemoveItem(Item item)
+    {
+        Data.Inventory.remove(item);
+    }
+
+    public void AddGold(int amount)
+    {
+        Data.Gold += amount;
+    }
+
+    public void RemoveGold(int amount)
+    {
+        Data.Gold -= amount;
+    }
+
+    // Returns the player's total strength, including bonuses from items.
+    public int GetStrength()
+    {
+        int bonus = Data.Strength;
+        for (Item item : Data.Inventory)
+        {
+            bonus += item.Strength;
+        }
+        return bonus;
+    }
+
+    // Returns the player's total dexterity, including bonuses from items.
+    public int GetDexterity()
+    {
+        int bonus = Data.Dexterity;
+        for (Item item : Data.Inventory)
+        {
+            bonus += item.Dexterity;
+        }
+        return bonus;
+    }
+
+    // Returns the player's total charisma, including bonuses from items.
+    public int GetCharisma()
+    {
+        int bonus = Data.Charisma;
+        for (Item item : Data.Inventory)
+        {
+            bonus += item.Charisma;
+        }
+        return bonus;
     }
 }
