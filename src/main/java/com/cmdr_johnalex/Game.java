@@ -1,8 +1,10 @@
 package com.cmdr_johnalex;
 
+import com.cmdr_johnalex.Items.Amethyst;
 import com.cmdr_johnalex.Items.Item;
 import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
+import com.cmdr_johnalex.Utils.Pair;
 
 // The Game class is responsible for running the game. It will init the map class, display the user interface, allow the player to move, and handle combat.
 public class Game
@@ -105,6 +107,35 @@ public class Game
             if (!Player.Move(Direction.West))
             {
                 System.out.println("You cannot move west. There is a wall.");
+            }
+        }
+        else if (Input.Compare(input, new String[]{"leave", "exit"}))
+        {
+            if (!Player.Data.Location.equals(new Pair<>(0, 0)))
+            {
+                System.out.println("The exit is at (0, A). You must go back to the entrance to leave.");
+            }
+            else
+            {
+                boolean hasAmethyst = false;
+                for (Item item : Player.Data.Inventory)
+                {
+                    if (item instanceof Amethyst)
+                    {
+                        hasAmethyst = true;
+                        break;
+                    }
+                }
+
+                if (hasAmethyst)
+                {
+                    System.out.println("You leave the dungeon with the Amethyst.");
+                    State.CurrentState = State.Win;
+                }
+                else
+                {
+                    System.out.println("You cannot leave the dungeon without the Amethyst.");
+                }
             }
         }
         else if (Input.Compare(input, new String[]{"pickup", "pick up", "p"}))
