@@ -35,13 +35,13 @@ public class Application
             switch (State.CurrentState)
             {
             case MainMenu:
-                Menu.MainMenu();
-                break;
-            case CharacterCreation:
-                Menu.CharacterCreation(Game.GetPlayer());
+                Menu.MainMenu(Game.GetPlayer());
                 break;
             case Playing:
                 Game.Run();
+                break;
+            case Win:
+                Menu.Win();
                 break;
             case Settings:
                 Menu.Settings();

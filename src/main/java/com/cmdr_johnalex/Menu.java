@@ -14,7 +14,7 @@ public class Menu
     {
     }
 
-    public void MainMenu()
+    public void MainMenu(Player player)
     {
         Console.Clear();
         System.out.println("===================");
@@ -38,15 +38,14 @@ public class Menu
         {
             case 1:
                 Introduction();
-                State.CurrentState = State.CharacterCreation;
+                CharacterCreation(player);
+                State.CurrentState = State.Playing;
                 break;
             case 2:
                 State.CurrentState = State.Settings;
-                Settings();
                 break;
             case 3:
                 State.CurrentState = State.Credits;
-                Credits();
                 break;
             case 4:
                 State.CurrentState = State.Quit;
@@ -69,6 +68,8 @@ public class Menu
         System.out.println("Many have tried to find it, but none have succeeded.");
         System.out.println("Will you be the first?");
 
+        // TODO: Expand on the introduction text with some more lore, info about the world, the goal of the player, and how to play the game (controls).
+
         System.out.println("\nPress enter to continue...");
         Input.GetEnter();
     }
@@ -81,7 +82,20 @@ public class Menu
 
         System.out.println("So, what is the name of this worthy adventurer?");
         player.Data.Name = Input.GetString();
-        State.CurrentState = State.Playing;
+    }
+
+    public void Win()
+    {
+        Console.Clear();
+        System.out.println("Congratulations! You have found the Amethyst of Jameson!");
+        System.out.println("You are now the richest person in the world!");
+
+        // TODO: Expand on the win text and add some stats about the player like room visit count, gold collected, items, etc.
+        // Perhaps the player and map class, or just the game class should have a "stat collector" function that will return a struct that will be passed to this function?
+
+        System.out.println("\nPress enter to continue...");
+        Input.GetEnter();
+        State.CurrentState = State.MainMenu;
     }
 
     public void Settings()

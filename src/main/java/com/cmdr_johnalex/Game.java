@@ -33,6 +33,11 @@ public class Game
         return Player;
     }
 
+    public Map GetMap()
+    {
+        return Map;
+    }
+
     public void Run()
     {
         if (FirstRun)
