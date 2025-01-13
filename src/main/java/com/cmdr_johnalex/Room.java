@@ -3,6 +3,7 @@ package com.cmdr_johnalex;
 import com.cmdr_johnalex.Items.Amethyst;
 import com.cmdr_johnalex.Items.Item;
 import com.cmdr_johnalex.Items.ItemFactory;
+import com.cmdr_johnalex.Utils.FileManager;
 import com.cmdr_johnalex.Utils.Rand;
 
 // Rooms have only four possibilities.
@@ -47,8 +48,22 @@ public class Room
     Room(RoomType type, Boolean isAmethyst)
     {
         Type = type;
-        Description = "This is a room"; // TODO: Load randomly from a file.
+        Description = FileManager.ReadRandomLine("com/cmdr_johnalex/Data/RoomDescription.txt");
         Visited = false;
+
+        /*
+        Mmm, yes. I'd like one string in each room that is stored in memory 24/7 that may be a
+        duplicate of another string in another room please. Oh what's that? You want to store a
+        million rooms? Sure, let's waste a million strings in memory. That's a great idea. I'm
+        sure the garbage collector will love that. Oh? What's this? Whenever you try to get a
+        description, it reads an entire file, chooses a random line, stores it, closes and then
+        repeats for the next room? Oh, that's a great idea. I'm sure that won't slow down the
+        game at all. I'm sure the player will love waiting for the game to load every room.
+
+        (I'm a little unhappy with the lack of optimization. I should have planned this part out better.)
+
+        TODO: Optimize this.
+        */
 
         switch (Type)
         {

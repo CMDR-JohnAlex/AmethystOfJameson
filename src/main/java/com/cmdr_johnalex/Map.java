@@ -27,6 +27,7 @@ public class Map
                 int random = Rand.Range(0, 99);
                 RoomType randomType;
 
+                // TODO: Oh god, do something better than THIS. What were you thinking?
                 if (random < 10)
                     randomType = RoomType.Empty;
                 else if (random < 20)
