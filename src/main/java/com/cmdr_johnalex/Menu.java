@@ -37,6 +37,7 @@ public class Menu
         switch (input)
         {
             case 1:
+                Introduction();
                 State.CurrentState = State.CharacterCreation;
                 break;
             case 2:
@@ -57,6 +58,19 @@ public class Menu
                 System.out.println("Invalid input. Please try again.");
                 break;
         }
+    }
+
+    public void Introduction()
+    {
+        Console.Clear();
+        System.out.println("Introduction:");
+        System.out.println("You are a brave adventurer seeking the Amethyst of Jameson.");
+        System.out.println("It is said to be the most valuable gem in the world.");
+        System.out.println("Many have tried to find it, but none have succeeded.");
+        System.out.println("Will you be the first?");
+
+        System.out.println("\nPress enter to continue...");
+        Input.GetEnter();
     }
 
     public void CharacterCreation(Player player)
