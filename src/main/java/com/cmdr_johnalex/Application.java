@@ -43,6 +43,9 @@ public class Application
             case Win:
                 Menu.Win();
                 break;
+            case Lose:
+                Menu.Lose();
+                break;
             case Settings:
                 Menu.Settings();
                 break;

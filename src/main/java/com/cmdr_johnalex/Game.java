@@ -157,9 +157,21 @@ public class Game
                 System.out.println("You picked up " + Map.GetRoom(Player.Data.Location).Item.Article + ' ' + Map.GetRoom(Player.Data.Location).Item.Name + ".");
                 Map.GetRoom(Player.Data.Location).Update();
                 break;
-            case Monster:
-                // TODO: Implement combat.
-                System.out.println("Sorry, this has not been implemented yet.");
+            case Trap:
+                System.out.println("Agh! It was a trap! That hurt!");
+                Player.TakeTrapDamage();
+
+                if (Player.Data.Health <= 0)
+                {
+                    State.CurrentState = State.Lose;
+                }
+
+                Map.GetRoom(Player.Data.Location).Update();
+                break;
+            case Healing:
+                System.out.println("You picked up a healing item and used it to heal yourself.");
+                Player.Heal();
+                Map.GetRoom(Player.Data.Location).Update();
                 break;
             default:
                 System.out.println("There is nothing to pick up here.");
@@ -185,7 +197,7 @@ public class Game
             System.out.println("East (e) - Move east.");
             System.out.println("South (s) - Move south.");
             System.out.println("West (w) - Move west.");
-            System.out.println("Pickup (p) - Pick up an item or gold.");
+            System.out.println("Pickup (p) - Pick up an item, gold or healing item.");
             System.out.println("Map (m) - Display the map.");
             System.out.println("Inventory (i) - Display the player's inventory.");
             System.out.println("Help (h) - Display this help message.");

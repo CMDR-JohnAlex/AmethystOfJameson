@@ -24,30 +24,39 @@ public class Map
         {
             for (int j = 0; j < CurrentMap[i].length; j++)
             {
-                int random = Rand.Range(0, 99);
+                int emptyWeight = 30;
+                int itemWeight = 25;
+                int goldWeight = 25;
+                int trapWeight = 10;
+                int healingWeight = 5;
+                int totalWeight = emptyWeight + itemWeight + goldWeight + trapWeight + healingWeight;
+
+                int random = Rand.Range(0, totalWeight - 1);
                 RoomType randomType;
 
-                // TODO: Oh god, do something better than THIS. What were you thinking?
-                if (random < 10)
-                    randomType = RoomType.Empty;
-                else if (random < 20)
+                // Randomly select room type based on weights
+                int weightIndex = 0;
+
+                if (random < (weightIndex += goldWeight))
+                {
                     randomType = RoomType.Gold;
-                else if (random < 30)
-                    randomType = RoomType.Gold;
-                else if (random < 40)
+                }
+                else if (random < (weightIndex += itemWeight))
+                {
                     randomType = RoomType.Item;
-                else if (random < 50)
-                    randomType = RoomType.Empty;
-                else if (random < 60)
-                    randomType = RoomType.Gold;
-                else if (random < 70)
-                    randomType = RoomType.Empty;
-                else if (random < 80)
-                    randomType = RoomType.Gold;
-                else if (random < 90)
-                    randomType = RoomType.Item;
+                }
+                else if (random < (weightIndex += trapWeight))
+                {
+                    randomType = RoomType.Trap;
+                }
+                else if (random < (weightIndex += healingWeight))
+                {
+                randomType = RoomType.Healing;
+                }
                 else
+                {
                     randomType = RoomType.Empty;
+                }
 
                 CurrentMap[i][j] = new Room(randomType, false);
                 System.out.println("i: " + i + " j: " + j + " Type: " + CurrentMap[i][j].Type.toString() + " Description: " + CurrentMap[i][j].Description);

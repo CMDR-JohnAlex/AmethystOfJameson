@@ -98,6 +98,17 @@ public class Menu
         State.CurrentState = State.MainMenu;
     }
 
+    public void Lose()
+    {
+        Console.Clear();
+        System.out.println("You have died.");
+        System.out.println("You were a brave adventurer, but you were not good enough.");
+
+        System.out.println("\nPress enter to continue...");
+        Input.GetEnter();
+        State.CurrentState = State.MainMenu;
+    }
+
     public void Settings()
     {
         Settings.SettingsMenu();

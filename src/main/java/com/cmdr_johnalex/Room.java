@@ -12,6 +12,8 @@ enum RoomType
     Empty,
     Gold,
     Item,
+    Trap,
+    Healing,
     Monster;
 
     public String ToMapString()
@@ -24,6 +26,10 @@ enum RoomType
             return " GOLD  ";
         case Item:
             return " ITEM  ";
+        case Trap:
+            return " TRAP  ";
+        case Healing:
+            return "HEALING";
         case Monster:
             return "MONSTER";
         default:
@@ -81,6 +87,11 @@ public class Room
             else
                 Item = ItemFactory.CreateRandomItem();
             break;
+        case Trap:
+            ContentDescription = "There is an item here."; // Traps are disguised as items.
+        case Healing:
+            ContentDescription = "There is a healing item here.";
+            break;
         case Monster:
             ContentDescription = "There is a monster here.";
             // TODO: Random monster.
@@ -96,11 +107,16 @@ public class Room
         case Empty:
             break;
         case Gold:
-            GoldAmount = 0;
             ContentDescription = "There was once gold here.";
             break;
         case Item:
             ContentDescription = "There was once an item here.";
+            break;
+        case Trap:
+            ContentDescription = "There was once a trap here.";
+            break;
+        case Healing:
+            ContentDescription = "There was once a healing item here.";
             break;
         case Monster:
             ContentDescription = "There was once a " + "*insert monster*" + " here.";

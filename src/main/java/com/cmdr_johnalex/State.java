@@ -5,6 +5,7 @@ public enum State
     MainMenu,
     Playing,
     Win,
+    Lose,
     Settings,
     Credits,
     Quit;
