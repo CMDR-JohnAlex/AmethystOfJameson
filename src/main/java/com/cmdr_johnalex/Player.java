@@ -153,9 +153,11 @@ public class Player
     public void TakeTrapDamage()
     {
         // Linear mapping of damage based on the player's stats.
-        // Maps from 10 damage at 0 DEX to 0 damage at 50 DEX.
-        // The damage is then clamped between 0 and 10 so that you don't get more than 10 damage, or get negative damage if your DEX is above 50.
-        int damage = Math.clamp(-(1/5) * Data.Dexterity + 10, 0, 10);
+        // Maps from maxDamage at 0 DEX to 0 damage at dexterityForMinDamage.
+        // The damage is then clamped between 0 and maxDamage so that you don't get more than maxDamage damage, or get negative damage if your DEX is above dexterityForMinDamage.
+        int maxDamage = 50;
+        int dexterityForMinDamage = 30;
+        int damage = Math.clamp(-(maxDamage/dexterityForMinDamage) * Data.Dexterity + maxDamage, 0, maxDamage);
         Data.Health -= damage;
     }
 

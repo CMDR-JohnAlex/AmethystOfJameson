@@ -16,6 +16,11 @@ public class Settings
     private static int MapWidth = 7;
     private static int MapHeight = 7;
     private static Boolean HideUnvisitedRooms = true;
+    private static int EmptyWeight = 20;
+    private static int ItemWeight = 30;
+    private static int GoldWeight = 30;
+    private static int TrapWeight = 10;
+    private static int HealingWeight = 3;
 
     // Random
     private static long Seed = 3307;
@@ -45,6 +50,31 @@ public class Settings
         return HideUnvisitedRooms;
     }
 
+    public static final int GetEmptyWeight()
+    {
+        return EmptyWeight;
+    }
+
+    public static final int GetItemWeight()
+    {
+        return ItemWeight;
+    }
+
+    public static final int GetGoldWeight()
+    {
+        return GoldWeight;
+    }
+
+    public static final int GetTrapWeight()
+    {
+        return TrapWeight;
+    }
+
+    public static final int GetHealingWeight()
+    {
+        return HealingWeight;
+    }
+
     public static void Initialize()
     {
         // TODO: Load settings from file.
@@ -67,6 +97,11 @@ public class Settings
         System.out.println("3. Map Height: " + MapHeight);
         System.out.println("4. Hide Unvisited Rooms: " + HideUnvisitedRooms);
         System.out.println("5. Seed: " + Seed);
+        System.out.println("6. Empty Room Weight: " + EmptyWeight);
+        System.out.println("7. Item Room Weight: " + ItemWeight);
+        System.out.println("8. Gold Room Weight: " + GoldWeight);
+        System.out.println("9. Trap Room Weight: " + TrapWeight);
+        System.out.println("10. Healing Room Weight: " + HealingWeight);
 
         System.out.println("Input a number to change a setting, or 0 to return to the main menu.");
         int input = Input.GetInt();
@@ -95,6 +130,26 @@ public class Settings
             case 5:
                 System.out.println("Please input a new value for Seed (long):");
                 Seed = Input.GetInt();
+                break;
+            case 6:
+                System.out.println("Please input a new value for Empty Room Weight (int):");
+                EmptyWeight = Input.GetInt();
+                break;
+            case 7:
+                System.out.println("Please input a new value for Item Room Weight (int):");
+                ItemWeight = Input.GetInt();
+                break;
+            case 8:
+                System.out.println("Please input a new value for Gold Room Weight (int):");
+                GoldWeight = Input.GetInt();
+                break;
+            case 9:
+                System.out.println("Please input a new value for Trap Room Weight (int):");
+                TrapWeight = Input.GetInt();
+                break;
+            case 10:
+                System.out.println("Please input a new value for Healing Room Weight (int):");
+                HealingWeight = Input.GetInt();
                 break;
             default:
                 System.out.println("Invalid input. Please try again.");

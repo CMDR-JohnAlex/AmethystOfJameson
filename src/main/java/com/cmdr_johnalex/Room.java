@@ -88,7 +88,20 @@ public class Room
                 Item = ItemFactory.CreateRandomItem();
             break;
         case Trap:
-            ContentDescription = "There is an item here."; // Traps are disguised as items.
+            // Traps can be disguised.
+            switch (Rand.Range(1, 3))
+            {
+            case 1:
+                ContentDescription = "There is an item here.";
+                break;
+            case 2:
+                ContentDescription = "There is some gold here.";
+                break;
+            case 3:
+                ContentDescription = "There is something odd here.";
+                break;
+            }
+            break;
         case Healing:
             ContentDescription = "There is a healing item here.";
             break;

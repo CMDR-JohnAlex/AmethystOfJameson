@@ -24,11 +24,11 @@ public class Map
         {
             for (int j = 0; j < CurrentMap[i].length; j++)
             {
-                int emptyWeight = 30;
-                int itemWeight = 25;
-                int goldWeight = 25;
-                int trapWeight = 10;
-                int healingWeight = 5;
+                int emptyWeight = Settings.GetEmptyWeight();
+                int itemWeight = Settings.GetItemWeight();
+                int goldWeight = Settings.GetGoldWeight();
+                int trapWeight = Settings.GetTrapWeight();
+                int healingWeight = Settings.GetHealingWeight();
                 int totalWeight = emptyWeight + itemWeight + goldWeight + trapWeight + healingWeight;
 
                 int random = Rand.Range(0, totalWeight - 1);
