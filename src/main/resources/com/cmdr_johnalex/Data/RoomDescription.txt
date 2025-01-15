@@ -1,2 +1,20 @@
-This is a room.
-This is another room.
+This is just a room.
+The room looks moldy, something is growing on the walls.
+This room used to be a grand hallway.
+This room is the royal closet. Are you stuck in here?
+This room was once a royal hall, however it is now splattered with monster guts (ew).
+This room was once a royal hall, however it is now splattered with monster guts.
+This room is likely the place you will die.
+This room was once a big ballroom.
+This room was once a big ballroom, however it is now dusty due to old age.
+This room is filled with ancient, rusted armor and weapons. You probably don't want these.
+The air in this room is thick with the smell of damp stone and decay.
+This room contains a large, ominous throne covered in cobwebs.
+This room is a library with shelves of dusty, unreadable books.
+This room is a kitchen with old, rotting food still on the tables.
+This room is a treasury, but the chests are empty and the gold is long gone.
+This room is a secret passageway, hidden behind a sliding bookcase.
+This room is a gallery, with faded paintings and broken statues.
+This room is a wine cellar, with empty racks and shattered bottles.
+This room is barely lit by flickering torches on the walls.
+This room was once a laboratory, with a big plaque saying... "Jennifer Dogna".
