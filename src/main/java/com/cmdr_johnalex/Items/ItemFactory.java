@@ -11,11 +11,19 @@ public class ItemFactory
     // TODO: Implement a way to automatically add new items.
     private static final List<Class<? extends Item>> ItemClasses = Arrays.asList(
         //TestItem.class,
+        AncientBook.class,
+        CrystalBallNegative.class,
+        CrystalBallPositive.class,
+        CursedAmulet.class,
         GlovesOfCombat.class,
         GoldenRing.class,
+        HauntedRing.class,
+        IronShield.class,
+        ModelShip.class,
         PendantOfProtection.class,
         RingOfEvasion.class,
         RuffledPuffyHat.class,
+        SilverSword.class,
         TopazOfTyler.class,
         TressymFeather.class,
         UsedFlare.class

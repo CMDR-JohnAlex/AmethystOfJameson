@@ -53,7 +53,7 @@ public class Application
                 IsRunning = false;
                 break;
             default:
-            System.out.println("We shouldn't be here.");
+                System.out.println("We shouldn't be here.");
                 IsRunning = false;
                 break;
             }
