@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.cmdr_johnalex.Items.Item;
 import com.cmdr_johnalex.Utils.Pair;
+import com.cmdr_johnalex.Utils.Input;
 
 enum Direction
 {
@@ -164,5 +165,37 @@ public class Player
     public void Heal()
     {
         Data.Health = Data.MaxHealth;
+    }
+
+    public void DisplayInventory()
+    {
+        // Display all items in the player's inventory with a number. Player can select the number to view that item's description.
+        System.out.println("Inventory:");
+        for (int i = 0; i < Data.Inventory.size(); i++)
+        {
+            System.out.println("  " + (i + 1) + ". " + Data.Inventory.get(i).Name);
+        }
+
+        System.out.println("0. Exit");
+
+        System.out.println("\nSelect a number for the item you wish to view, or press 0 to exit.");
+        int input = Input.GetInt();
+        System.out.println();
+
+        if (input == 0)
+        {
+            System.out.println("Closing your bag...");
+        }
+        else if (input > 0 && input <= Data.Inventory.size())
+        {
+            Item currentItem = Data.Inventory.get(input - 1);
+            System.out.println(currentItem.Name + ":");
+            System.out.println("  " + currentItem.Description);
+            System.out.println("  " + "You believe this item would be worth " + currentItem.Value + " gold.");
+        }
+        else
+        {
+            System.out.println("Invalid input. Closing your bag...");
+        }
     }
 }

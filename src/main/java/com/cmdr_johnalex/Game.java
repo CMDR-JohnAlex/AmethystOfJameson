@@ -184,11 +184,7 @@ public class Game
         }
         else if (Input.Compare(input, new String[]{"inventory" , "i"}))
         {
-            System.out.println("Player inventory: ");
-            for (Item item : Player.Data.Inventory)
-            {
-                System.out.println("  - " + item.Article + ' ' + item.Name + " (Worth " + item.Value + " gold)");
-            }
+            Player.DisplayInventory();
         }
         else if (Input.Compare(input, new String[]{"help" , "h"}))
         {
