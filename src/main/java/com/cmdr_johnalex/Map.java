@@ -117,4 +117,20 @@ public class Map
     {
         return GetRoom(location.first, location.second);
     }
+
+    public int GetVisitedRoomCount()
+    {
+        int count = 0;
+        for (int i = 0; i < CurrentMap.length; i++)
+        {
+            for (Room item : CurrentMap[i])
+            {
+                if (item.Visited)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 }

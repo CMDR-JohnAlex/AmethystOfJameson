@@ -41,10 +41,10 @@ public class Application
                 Game.Run();
                 break;
             case Win:
-                Menu.Win();
+                Menu.Win(Game);
                 break;
             case Lose:
-                Menu.Lose();
+                Menu.Lose(Game);
                 break;
             case Settings:
                 Menu.Settings();

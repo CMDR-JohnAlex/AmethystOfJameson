@@ -11,6 +11,7 @@ public class Game
 {
     private Player Player;
     private Map Map;
+    private int TurnsTaken;
     private Boolean FirstRun;
 
     public void Initialize()
@@ -38,6 +39,11 @@ public class Game
         return Map;
     }
 
+    public int GetTurns()
+    {
+        return TurnsTaken;
+    }
+
     public void Run()
     {
         if (FirstRun)
@@ -45,6 +51,7 @@ public class Game
             Map.GenerateMap();
             FirstRun = false;
         }
+        TurnsTaken += 1;
 
         Console.Clear();
 

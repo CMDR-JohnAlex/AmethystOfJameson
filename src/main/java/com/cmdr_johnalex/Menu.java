@@ -84,25 +84,36 @@ public class Menu
         player.Data.Name = Input.GetString();
     }
 
-    public void Win()
+    public void Win(Game game)
     {
         Console.Clear();
-        System.out.println("Congratulations! You have found the Amethyst of Jameson!");
+        System.out.println("Congratulations " + game.GetPlayer().Data.Name + "! You have found the Amethyst of Jameson!");
         System.out.println("You are now the richest person in the world!");
 
-        // TODO: Expand on the win text and add some stats about the player like room visit count, gold collected, items, etc.
-        // Perhaps the player and map class, or just the game class should have a "stat collector" function that will return a struct that will be passed to this function?
+        System.out.println("\nYou have completed the game in " + game.GetTurns() + " turns.");
+        System.out.println("You have collected " + game.GetPlayer().Data.Gold + " gold.");
+        System.out.println("You have visited " + game.GetMap().GetVisitedRoomCount() + " rooms.");
+        System.out.println("You have found " + game.GetPlayer().Data.Inventory.size() + " items.");
+
+        System.out.println("\nThank you for playing!");
 
         System.out.println("\nPress enter to continue...");
         Input.GetEnter();
         State.CurrentState = State.MainMenu;
     }
 
-    public void Lose()
+    public void Lose(Game game)
     {
         Console.Clear();
         System.out.println("You have died.");
         System.out.println("You were a brave adventurer, but you were not good enough.");
+
+        System.out.println("\nYou died after " + game.GetTurns() + " turns.");
+        System.out.println("You collected " + game.GetPlayer().Data.Gold + " gold.");
+        System.out.println("You visited " + game.GetMap().GetVisitedRoomCount() + " rooms.");
+        System.out.println("You found " + game.GetPlayer().Data.Inventory.size() + " items.");
+
+        System.out.println("\nBetter luck next time. Thank you for playing!");
 
         System.out.println("\nPress enter to continue...");
         Input.GetEnter();
