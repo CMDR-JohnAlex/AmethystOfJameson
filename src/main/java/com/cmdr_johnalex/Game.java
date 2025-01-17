@@ -89,7 +89,7 @@ public class Game
             State.CurrentState = State.Quit;
             return;
         }
-        else if (Input.Compare(input, new String[]{"north", "n"}))
+        else if (Input.Compare(input, new String[]{"north", "n", "up"}))
         {
             System.out.println("Trying to move north...");
             if (!Player.Move(Direction.North))
@@ -97,7 +97,7 @@ public class Game
                 System.out.println("You cannot move north. There is a wall.");
             }
         }
-        else if (Input.Compare(input, new String[]{"east", "e"}))
+        else if (Input.Compare(input, new String[]{"east", "e", "right"}))
         {
             System.out.println("Trying to move east...");
             if (!Player.Move(Direction.East))
@@ -105,7 +105,7 @@ public class Game
                 System.out.println("You cannot move east. There is a wall.");
             }
         }
-        else if (Input.Compare(input, new String[]{"south", "s"}))
+        else if (Input.Compare(input, new String[]{"south", "s", "down"}))
         {
             System.out.println("Trying to move south...");
             if (!Player.Move(Direction.South))
@@ -113,13 +113,30 @@ public class Game
                 System.out.println("You cannot move south. There is a wall.");
             }
         }
-        else if (Input.Compare(input, new String[]{"west", "w"}))
+        else if (Input.Compare(input, new String[]{"west", "w", "left"}))
         {
             System.out.println("Trying to move west...");
             if (!Player.Move(Direction.West))
             {
                 System.out.println("You cannot move west. There is a wall.");
             }
+        }
+        else if (Input.Compare(input, new String[]{"compass", "directions"}))
+        {
+            // Ascii art compass. This took a LONG time to make.
+            System.out.println("                  NORTH");
+            System.out.println("              , - ~ ~ ~ - ,");
+            System.out.println("          , '              .' ,");
+            System.out.println("        ,              ..:XX.   ,");
+            System.out.println("       ,             .:++Xx.     ,");
+            System.out.println("      ,           .:+;:x$+.       ,");
+            System.out.println(" WEST ,          .XX;x$$+.        , EAST");
+            System.out.println("      ,        ..$$$;x$+.         ,");
+            System.out.println("       ,      .:X$+:;+:          ,");
+            System.out.println("        ,    .:Xx+;:.           ,");
+            System.out.println("          ,  :X+:.           , '");
+            System.out.println("            ' -', _ _ _ ,  '");
+            System.out.println("                  SOUTH");
         }
         else if (Input.Compare(input, new String[]{"leave", "exit"}))
         {
@@ -196,6 +213,7 @@ public class Game
         else if (Input.Compare(input, new String[]{"help" , "h"}))
         {
             System.out.println("Commands:");
+            System.out.println("Compass - Display a compass.");
             System.out.println("North (n) - Move north.");
             System.out.println("East (e) - Move east.");
             System.out.println("South (s) - Move south.");
