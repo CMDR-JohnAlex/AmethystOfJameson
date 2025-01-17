@@ -68,8 +68,6 @@ public class Menu
         System.out.println("Many have tried to find it, but none have succeeded.");
         System.out.println("Will you be the first?");
 
-        // TODO: Expand on the introduction text with some more lore, info about the world, the goal of the player, and how to play the game (controls).
-
         System.out.println("\nPress enter to continue...");
         Input.GetEnter();
     }
@@ -78,7 +76,6 @@ public class Menu
     {
         Console.Clear();
         System.out.println("Character Creation:");
-
 
         System.out.println("So, what is the name of this worthy adventurer?");
         player.Data.Name = Input.GetString();
@@ -129,8 +126,25 @@ public class Menu
     {
         Console.Clear();
         System.out.println("Credits:");
-        System.out.println("Sorry, this is not yet implemented.");
-        System.out.println("Press enter to continue...");
+
+        System.out.println();
+        System.out.println("          Amethyst of Jameson");
+        System.out.println();
+
+        System.out.println("Developed by:             CMDR-JohnAlex");
+        System.out.println("Executive Producer:       CMDR-JohnAlex");
+        System.out.println("Technical Director:       CMDR-JohnAlex");
+        System.out.println("Lead Programmer:          CMDR-JohnAlex");
+        System.out.println("Gameplay Programmer:      CMDR-JohnAlex");
+        System.out.println("UI/UX Programmer:         CMDR-JohnAlex");
+        System.out.println("Build Engineer:           CMDR-JohnAlex");
+        System.out.println("Technical Writer:         CMDR-JohnAlex");
+        System.out.println("Release Manager:          CMDR-JohnAlex");
+        System.out.println("Coffee Supplier:          CMDR-JohnAlex");
+        System.out.println("Quality Assurance Tester: seagulldotexe");
+        System.out.println("Moral Support:            seagulldotexe");
+
+        System.out.println("\nPress enter to continue...");
         Input.GetEnter();
         State.CurrentState = State.MainMenu;
     }
