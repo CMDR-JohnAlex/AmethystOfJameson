@@ -3,8 +3,8 @@ package com.cmdr_johnalex;
 import java.util.ArrayList;
 
 import com.cmdr_johnalex.Items.Item;
-import com.cmdr_johnalex.Utils.Pair;
 import com.cmdr_johnalex.Utils.Input;
+import com.cmdr_johnalex.Utils.Pair;
 
 enum Direction
 {
@@ -17,8 +17,6 @@ enum Direction
 class PlayerData
 {
     String Name;
-    int Age;
-    Pair<String, String> Pronouns;
     final int MaxHealth = 100;
     int Health;
 
@@ -42,8 +40,6 @@ public class Player
     {
         Data = new PlayerData();
         Data.Name = "Erin";
-        Data.Age = 25;
-        Data.Pronouns = new Pair<>("they", "them");
         Data.Health = Data.MaxHealth;
 
         Data.Strength = 10;
