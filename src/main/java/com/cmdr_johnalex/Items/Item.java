@@ -1,5 +1,8 @@
 package com.cmdr_johnalex.Items;
 
+/**
+ * The Item class represents an item that can be found in the game.
+ */
 public abstract class Item
 {
     public final String Name;
@@ -12,6 +15,14 @@ public abstract class Item
     public final int Dexterity;
     public final int Charisma;
 
+    /**
+     * Initializes the item with the given values.
+     *
+     * @param name The name of the item.
+     * @param description The description of the item.
+     * @param article The article of the item.
+     * @param value The value of the item.
+     */
     public Item(String name, String description, String article, int value)
     {
         Name = name;
@@ -23,6 +34,17 @@ public abstract class Item
         Charisma = 0;
     }
 
+    /**
+     * Initializes the item with the given values.
+     *
+     * @param name The name of the item.
+     * @param description The description of the item.
+     * @param article The article of the item.
+     * @param value The value of the item.
+     * @param strength The strength modifier of the item.
+     * @param dexterity The dexterity modifier of the item.
+     * @param charisma The charisma modifier of the item.
+     */
     public Item(String name, String description, String article, int value, int strength, int dexterity, int charisma)
     {
         Name = name;

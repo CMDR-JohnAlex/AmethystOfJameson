@@ -3,17 +3,30 @@ package com.cmdr_johnalex;
 import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 
-// The Menu class is responsible for displaying the different menus.
+/**
+ * The Menu class is responsible for the displaying and interaction of the game's menus.
+ */
 public class Menu
 {
+    /**
+     * Initializes the menu.
+     */
     public void Initialize()
     {
     }
 
+    /**
+     * Shuts down the menu.
+     */
     public void Shutdown()
     {
     }
 
+    /**
+     * Displays the main menu and handles user input.
+     *
+     * @param player The player object. Used to pass the player's name to the game.
+     */
     public void MainMenu(Player player)
     {
         Console.Clear();
@@ -59,6 +72,9 @@ public class Menu
         }
     }
 
+    /**
+     * Displays the introduction to the game.
+     */
     public void Introduction()
     {
         Console.Clear();
@@ -72,6 +88,11 @@ public class Menu
         Input.GetEnter();
     }
 
+    /**
+     * Handles the character creation process.
+     *
+     * @param player The player object. Used to set the player's name.
+     */
     public void CharacterCreation(Player player)
     {
         Console.Clear();
@@ -81,6 +102,11 @@ public class Menu
         player.Data.Name = Input.GetString();
     }
 
+    /**
+     * Displays the win screen.
+     *
+     * @param game The game object. Used to get the player's stats.
+     */
     public void Win(Game game)
     {
         Console.Clear();
@@ -99,6 +125,11 @@ public class Menu
         State.CurrentState = State.MainMenu;
     }
 
+    /**
+     * Displays the lose screen.
+     *
+     * @param game The game object. Used to get the player's stats.
+     */
     public void Lose(Game game)
     {
         Console.Clear();
@@ -117,11 +148,17 @@ public class Menu
         State.CurrentState = State.MainMenu;
     }
 
+    /**
+     * Displays the settings menu.
+     */
     public void Settings()
     {
         Settings.SettingsMenu();
     }
 
+    /**
+     * Displays the credits.
+     */
     public void Credits()
     {
         Console.Clear();

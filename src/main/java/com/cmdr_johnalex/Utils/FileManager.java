@@ -6,8 +6,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * The FileManager class provides methods for reading from files.
+ */
 public class FileManager
 {
+    /**
+     * Reads all the lines from a file.
+     *
+     * @param filepath The path to the file to read. Relative to the resources directory.
+     * @return An ArrayList of strings containing the lines from the file.
+     */
     public static ArrayList<String> ReadFile(String filepath)
     {
         ArrayList<String> lines = new ArrayList<>();
@@ -31,6 +40,12 @@ public class FileManager
         return lines;
     }
 
+    /**
+     * Reads a random line from a file.
+     *
+     * @param filepath The path to the file to read. Relative to the resources directory.
+     * @return A random line from the file.
+     */
     public static String ReadRandomLine(String filepath)
     {
         ArrayList<String> lines = ReadFile(filepath);

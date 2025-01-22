@@ -1,11 +1,17 @@
 package com.cmdr_johnalex;
 
+/**
+ * The Application class manages the overall lifecycle of the game.
+ */
 public class Application
 {
     Boolean IsRunning;
     Menu Menu;
     Game Game;
 
+    /**
+     * Initializes the application and its objects.
+     */
     public void Initialize()
     {
         IsRunning = true;
@@ -19,6 +25,9 @@ public class Application
         Game.Initialize();
     }
 
+    /**
+     * Shuts down the application and its objects.
+     */
     public void Shutdown()
     {
         IsRunning = false;
@@ -28,6 +37,9 @@ public class Application
         Settings.Shutdown();
     }
 
+    /**
+     * Runs the application's main loop.
+     */
     public void Run()
     {
         while (IsRunning)

@@ -6,7 +6,9 @@ import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 import com.cmdr_johnalex.Utils.Pair;
 
-// The Game class is responsible for running the game. It will init the map class, display the user interface, allow the player to move, and handle combat.
+/**
+ * The Game class manages the core gameplay logic and player interaction.
+ */
 public class Game
 {
     private Player Player;
@@ -14,6 +16,9 @@ public class Game
     private int TurnsTaken;
     private Boolean FirstRun;
 
+    /**
+     * Initializes the game and its objects.
+     */
     public void Initialize()
     {
         Player = new Player();
@@ -23,27 +28,48 @@ public class Game
         FirstRun = true;
     }
 
+    /**
+     * Shuts down the game and its objects.
+     */
     public void Shutdown()
     {
         Map.Shutdown();
         Player.Shutdown();
     }
 
+    /**
+     * Gets the player object.
+     *
+     * @return The Player object.
+     */
     public Player GetPlayer()
     {
         return Player;
     }
 
+    /**
+     * Gets the map object.
+     *
+     * @return The Map object.
+     */
     public Map GetMap()
     {
         return Map;
     }
 
+    /**
+     * Gets the number of turns taken.
+     *
+     * @return The number of turns taken.
+     */
     public int GetTurns()
     {
         return TurnsTaken;
     }
 
+    /**
+     * Runs an iteration of the game loop and handles player decisions.
+     */
     public void Run()
     {
         if (FirstRun)

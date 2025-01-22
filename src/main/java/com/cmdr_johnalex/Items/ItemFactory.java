@@ -5,6 +5,9 @@ import java.util.List;
 
 import com.cmdr_johnalex.Utils.Rand;
 
+/**
+ * The ItemFactory class provides a way to create random items.
+ */
 public class ItemFactory
 {
     // NOTE: This needs to be updated every time a new item is added.
@@ -29,6 +32,11 @@ public class ItemFactory
         UsedFlare.class
     );
 
+    /**
+     * Creates a random item.
+     *
+     * @return A random item that is derived from the Item class.
+     */
     public static Item CreateRandomItem()
     {
         int index = Rand.Range(0, ItemClasses.size() - 1);

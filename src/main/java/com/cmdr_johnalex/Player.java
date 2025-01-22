@@ -6,6 +6,9 @@ import com.cmdr_johnalex.Items.Item;
 import com.cmdr_johnalex.Utils.Input;
 import com.cmdr_johnalex.Utils.Pair;
 
+/**
+ * Enum for the four cardinal directions.
+ */
 enum Direction
 {
     North,
@@ -14,6 +17,9 @@ enum Direction
     West
 }
 
+/**
+ * The PlayerData class represents the player's data.
+ */
 class PlayerData
 {
     String Name;
@@ -31,11 +37,17 @@ class PlayerData
     ArrayList<Item> Inventory;
 }
 
+/**
+ * The Player class represents the player character in the game.
+ */
 public class Player
 {
     // TODO: Make this private and use getters/setters.
     PlayerData Data;
 
+    /**
+     * Initializes the player with default values.
+     */
     public void Initialize()
     {
         Data = new PlayerData();
@@ -52,11 +64,19 @@ public class Player
         Data.Inventory = new ArrayList<Item>();
     }
 
+    /**
+     * Shuts down the player.
+     */
     public void Shutdown()
     {
     }
 
-    // Moves the player in the given direction. Returns true if the player was able to move, false otherwise.
+    /**
+     * Attempts to move the player in the specified direction.
+     *
+     * @param direction The direction to move.
+     * @return True if the player successfully moved, false if they hit a wall.
+     */
     public Boolean Move(Direction direction)
     {
         switch (direction)
@@ -94,27 +114,51 @@ public class Player
         return false;
     }
 
+    /**
+     * Adds an item to the player's inventory.
+     *
+     * @param item The item to add.
+     */
     public void AddItem(Item item)
     {
         Data.Inventory.add(item);
     }
 
+    /**
+     * Removes an item from the player's inventory.
+     *
+     * @param item The item to remove.
+     */
     public void RemoveItem(Item item)
     {
         Data.Inventory.remove(item);
     }
 
+    /**
+     * Adds gold to the player's inventory.
+     *
+     * @param amount The amount of gold to add.
+     */
     public void AddGold(int amount)
     {
         Data.Gold += amount;
     }
 
+    /**
+     *Removes gold from the player's inventory.
+
+     @param amount The amount of gold to remove.
+     */
     public void RemoveGold(int amount)
     {
         Data.Gold -= amount;
     }
 
-    // Returns the player's total strength, including bonuses from items.
+    /**
+     * Returns the player's total strength. Includes any modifying items.
+     *
+     * @returns The player's total strength.
+     */
     public int GetStrength()
     {
         int bonus = Data.Strength;
@@ -125,7 +169,11 @@ public class Player
         return bonus;
     }
 
-    // Returns the player's total dexterity, including bonuses from items.
+    /**
+     * Returns the player's total dexterity. Includes any modifying items.
+     *
+     * @returns The player's total dexterity.
+     */
     public int GetDexterity()
     {
         int bonus = Data.Dexterity;
@@ -136,7 +184,11 @@ public class Player
         return bonus;
     }
 
-    // Returns the player's total charisma, including bonuses from items.
+    /**
+     * Returns the player's total charisma. Includes any modifying items.
+     *
+     * @returns The player's total charisma.
+     */
     public int GetCharisma()
     {
         int bonus = Data.Charisma;
@@ -147,6 +199,9 @@ public class Player
         return bonus;
     }
 
+    /**
+     * Gives the player trap damage.
+     */
     public void TakeTrapDamage()
     {
         // Linear mapping of damage based on the player's stats.
@@ -158,11 +213,17 @@ public class Player
         Data.Health -= damage;
     }
 
+    /**
+     * Heals the player fully.
+     */
     public void Heal()
     {
         Data.Health = Data.MaxHealth;
     }
 
+    /**
+     * Displays the player's inventory and handles any interactions.
+     */
     public void DisplayInventory()
     {
         // Display all items in the player's inventory with a number. Player can select the number to view that item's description.

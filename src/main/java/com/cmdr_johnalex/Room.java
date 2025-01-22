@@ -6,7 +6,7 @@ import com.cmdr_johnalex.Items.ItemFactory;
 import com.cmdr_johnalex.Utils.FileManager;
 import com.cmdr_johnalex.Utils.Rand;
 
-// Rooms have only four possibilities.
+// Enum representing the different room types.
 enum RoomType
 {
     Empty,
@@ -16,6 +16,11 @@ enum RoomType
     Healing,
     Monster;
 
+    /**
+     * Returns a string of the room type for the map to display.
+     *
+     * @return A string formatted for a map to display.
+     */
     public String ToMapString()
     {
         switch (this)
@@ -38,7 +43,11 @@ enum RoomType
     }
 }
 
-// Contains all the data for a single room
+/**
+ * The Room class represents a single room in the game map.
+ * Each room has a type, description, and content.
+ * The content can range from different items, gold, traps, or nothing.
+ */
 public class Room
 {
     public RoomType Type;
@@ -51,6 +60,13 @@ public class Room
     public Item Item;
     public String Monster; // TODO: Replace with Monster class.
 
+    /**
+     * Initializes the room given a type and wether or not it is the amethyst room.
+     * The room will have a random description and content based on the given type.
+     *
+     * @param type The type of room.
+     * @param isAmethyst True if the room is the amethyst room.
+     */
     Room(RoomType type, Boolean isAmethyst)
     {
         Type = type;
@@ -112,7 +128,12 @@ public class Room
         }
     }
 
-    // Update the room since the player has interacted with it. Will clear out the room.
+    /**
+     * Updates the room's content description.
+     *
+     * This function is called when the player has interacted with a room,
+     * and taken the room contents.
+     */
     public void Update()
     {
         switch (Type)

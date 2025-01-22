@@ -5,9 +5,11 @@ import java.util.Random;
 import com.cmdr_johnalex.Utils.Console;
 import com.cmdr_johnalex.Utils.Input;
 
-// Static Settings class.
-// This class is responsible for loading and saving settings, as well as providing read-only access to settings.
-// The class is static so that it can be accessed from anywhere in the program.
+/**
+ * The Settings class stores and handles the game settings.
+ * The settings are read-only unless modified by the Settings class during the settings menu.
+ * The class is static so that it can be access from anywhere without an instance. (Prevents multiple instances)
+ */
 public class Settings
 {
     private static Boolean test = false;
@@ -25,56 +27,109 @@ public class Settings
     // Random
     private static long Seed = 3307;
 
+    /**
+     * Gets the value of the test setting.
+     *
+     * @return The value of the test setting.
+     */
     public static final Boolean GetTest()
     {
         return test;
     }
 
+    /**
+     * Gets the value of the MapWidth setting.
+     *
+     * @return The value of the MapWidth setting.
+     */
     public static final int GetMapWidth()
     {
         return MapWidth;
     }
 
+    /**
+     * Gets the value of the MapHeight setting.
+     *
+     * @return The value of the MapHeight setting.
+     */
     public static final int GetMapHeight()
     {
         return MapHeight;
     }
 
+    /**
+     * Gets the value of the Seed setting.
+     *
+     * @return The value of the Seed setting.
+     */
     public static final long GetSeed()
     {
         return Seed;
     }
 
+    /**
+     * Gets the value of the HideUnvisitedRooms setting.
+     *
+     * @return The value of the HideUnvisitedRooms setting.
+     */
     public static final Boolean GetHideUnvisitedRooms()
     {
         return HideUnvisitedRooms;
     }
 
+    /**
+     * Gets the value of the EmptyWeight setting.
+     *
+     * @return The value of the EmptyWeight setting.
+     */
     public static final int GetEmptyWeight()
     {
         return EmptyWeight;
     }
 
+    /**
+     * Gets the value of the ItemWeight setting.
+     *
+     * @return The value of the ItemWeight setting.
+     */
     public static final int GetItemWeight()
     {
         return ItemWeight;
     }
 
+    /**
+     * Gets the value of the GoldWeight setting.
+     *
+     * @return The value of the GoldWeight setting.
+     */
     public static final int GetGoldWeight()
     {
         return GoldWeight;
     }
 
+    /**
+     * Gets the value of the TrapWeight setting.
+     *
+     * @return The value of the TrapWeight setting.
+     */
     public static final int GetTrapWeight()
     {
         return TrapWeight;
     }
 
+    /**
+     * Gets the value of the HealingWeight setting.
+     *
+     * @return The value of the HealingWeight setting.
+     */
     public static final int GetHealingWeight()
     {
         return HealingWeight;
     }
 
+    /**
+     * Initializes the static settings class.
+     */
     public static void Initialize()
     {
         // TODO: Load settings from file.
@@ -83,11 +138,17 @@ public class Settings
         Seed = new Random().nextLong();
     }
 
+    /**
+     * Shuts down the static settings class.
+     */
     public static void Shutdown()
     {
         // TODO: Save settings to file.
     }
 
+    /**
+     * Displays the settings menu and allows the user to change the settings.
+     */
     public static void SettingsMenu()
     {
         Console.Clear();

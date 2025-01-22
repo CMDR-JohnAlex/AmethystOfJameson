@@ -1,15 +1,27 @@
 package com.cmdr_johnalex.Utils;
 
+/**
+ * The Console class provides methods for interacting with the console.
+ */
 public class Console
 {
+    /**
+     * Initializes the Console class.
+     */
     public void Initialize()
     {
     }
 
+    /**
+     * Shuts down the Console class.
+     */
     public void Shutdown()
     {
     }
 
+    /**
+     * Clears the console screen.
+     */
     // TODO: Optimize by doing all OS checking in the Initialize function and save to a variable, then check against the variable here.
     public static void Clear()
     {

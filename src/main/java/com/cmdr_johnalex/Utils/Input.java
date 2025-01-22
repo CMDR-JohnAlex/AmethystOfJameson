@@ -2,10 +2,21 @@ package com.cmdr_johnalex.Utils;
 
 import java.util.Scanner;
 
+/**
+ * The Input class provides methods for getting input from the user.
+ */
 public class Input
 {
     static Scanner InputScanner = new Scanner(System.in);
 
+    /**
+     * Gets a string input from the user.
+     * The input is deemed invalid if it is empty.
+     * The function will repeat until a valid input is given.
+     *
+     * @param incorrectMessage The message to display when the input is incorrect.
+     * @return The string input from the user.
+     */
     public static String GetString(String incorrectMessage)
     {
         System.out.print("> ");
@@ -26,11 +37,26 @@ public class Input
         return input;
     }
 
+    /**
+     * Gets a string input from the user.
+     * The input is deemed invalid if it is empty.
+     * The function will repeat until a valid input is given.
+     *
+     * @return The string input from the user.
+     */
     public static String GetString()
     {
         return GetString("Invalid input. Please try again. (String)");
     }
 
+    /**
+     * Gets an integer input from the user.
+     * The input is deemed invalid if it is not an integer.
+     * The function will repeat until a valid input is given.
+     *
+     * @param incorrectMessage The message to display when the input is incorrect.
+     * @return The integer input from the user.
+     */
     public static int GetInt(String incorrectMessage)
     {
         System.out.print("> ");
@@ -56,11 +82,26 @@ public class Input
         return input;
     }
 
+    /**
+     * Gets an integer input from the user.
+     * The input is deemed invalid if it is not an integer.
+     * The function will repeat until a valid input is given.
+     *
+     * @return The integer input from the user.
+     */
     public static int GetInt()
     {
         return GetInt("Invalid input. Please try again. (Int)");
     }
 
+    /**
+     * Gets a double input from the user.
+     * The input is deemed invalid if it is not a double.
+     * The function will repeat until a valid input is given.
+     *
+     * @param incorrectMessage The message to display when the input is incorrect.
+     * @return The double input from the user.
+     */
     public static double GetDouble(String incorrectMessage)
     {
         System.out.print("> ");
@@ -86,11 +127,26 @@ public class Input
         return input;
     }
 
+    /**
+     * Gets a double input from the user.
+     * The input is deemed invalid if it is not a double.
+     * The function will repeat until a valid input is given.
+     *
+     * @return The double input from the user.
+     */
     public static double GetDouble()
     {
         return GetDouble("Invalid input. Please try again. (Double)");
     }
 
+    /**
+     * Gets a boolean input from the user.
+     * The input is deemed invalid if it is not a boolean.
+     * The function will repeat until a valid input is given.
+     *
+     * @param incorrectMessage The message to display when the input is incorrect.
+     * @return The boolean input from the user.
+     */
     public static Boolean GetBoolean(String incorrectMessage)
     {
         System.out.print("> ");
@@ -116,23 +172,46 @@ public class Input
         return input;
     }
 
+    /**
+     * Gets a boolean input from the user.
+     * The input is deemed invalid if it is not a boolean.
+     * The function will repeat until a valid input is given.
+     *
+     * @return The boolean input from the user.
+     */
     public static Boolean GetBoolean()
     {
         return GetBoolean("Invalid input. Please try again. (Boolean)");
     }
 
+    /**
+     * Gets the enter key from the user.
+     */
     public static void GetEnter()
     {
         InputScanner.nextLine();
     }
 
-    // Compare, ignoring case. Returns true if equal, false otherwise.
+    /**
+     * Compares two strings, ignoring case.
+     *
+     * @param input The input string.
+     * @param compareTo The string to compare to.
+     * @return True if the strings are equal, false otherwise.
+     */
     public static Boolean Compare(String input, String compareTo)
     {
         return input.equalsIgnoreCase(compareTo);
     }
 
-    // Compare an array of strings, ignoring case. Returns true if any string is equal, false otherwise.
+    /**
+     * Compares a string to an array of strings, ignoring case.
+     * Will return true if the input string is equal to any of the strings in the array.
+     *
+     * @param input The input string.
+     * @param compareTo The array of strings to compare to.
+     * @return True if the input string is equal to any of the strings in the array, false otherwise.
+     */
     public static Boolean Compare(String input, String[] compareTo)
     {
         for (String s : compareTo)
